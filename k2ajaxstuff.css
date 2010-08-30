@@ -1,0 +1,94 @@
+/*
+NAVIGATION
+.navigation is traditional page-by-page
+#rollingarchives is 'advanced' AJAX-powered
+The two are mutually exclusive,with the exception of permalinks where .navigation is always used.
+*/
+#rollingarchives,
+.navigation{padding:0;}
+#rollingarchives{height:45px;}
+#rollingarchives a,
+.navigation a{height:45px;}
+.navigation{padding:0 10px;}
+body.showrollingarchives .navigation{display:none;}
+body.rollingarchives.single .navigation{display:block;}
+body.showrollingarchives,
+body.livesearchactive{overflow-y:scroll;/* Avoid horizontal 'popping' when using RA and LS */}
+body.showrollingarchives.ie7,
+body.livesearchactive.ie7{ overflow-y:auto; }
+
+.navigation .nav-previous,
+.navigation .left{float:left;width:45%;text-align:left;padding:5px 5% 15px 0;}
+.navigation .nav-next,
+.navigation .right{float:right;width:45%;text-align:right;padding:6px 0 10px 5%;}
+
+.navigation a { color:#999; }
+
+#rollingarchives{ position:relative; top: 0; display: block; width: 660px; border-bottom: none; margin-bottom: 50px; border: solid #CCC; border-width: 0 0 1px 0; background: #FFF; }
+#rollingarchives.emptypage{display:none;}
+body.onepageonly #rollingarchives{display:none;}
+#rollingarchivesbg{display:none;}
+body.smartposition #rollingarchivesbg{display:block;background:#f4f4f4;z-index:45;position:fixed;top:0;margin-left:-20px;/* Counter-act .primary & #wrapper paddings */
+height:45px;background:#f8f8f8;}
+body.smartposition #rollingarchives{/* .smartposition is added to BODY with JS when .content passes the top of the window */
+position:fixed;z-index:50;}
+body.smartposition #widgets-sidebar-1 div.widget_search:first-child #searchform,
+body.smartposition #widgets-sidebar-2 div.widget_search:first-child #searchform{/* Fix search to top of window when scrolling past,if it is the first widget on the sidebar */
+position:fixed;top:0;z-index:50;padding-top:12px;}
+body.smartposition .primary{/* When scrolling past content top,adjust for fixing RA interface to top of screen */
+padding-top:45px !important;}
+body.smartposition #widgets-sidebar-1 div.widget_search:first-child,
+body.smartposition #widgets-sidebar-2 div.widget_search:first-child{padding-top:24px;}
+body.smartposition .content.onepageonly{/* If there is only a single page,remove space at top of page */
+padding-top:0;}
+.content{/* Contains both the RA nav and content,and is used for as a top marker for the smartposition */
+position:relative;}
+#rollingarchives a:hover{text-decoration:underline;}
+#rollnavigation a:active,#rollnavigation a:focus{outline:none;}
+#rollprevious,#rollnext,#rollload,#rollpages,#rolldates,#texttrimmer{position:absolute;top:14px;}
+#rollprevious,#rollnext,#rollload,#texttrimmer{position:absolute;top:0px;line-height:45px;}
+body.trim #trimmertrim{display:none;}
+#trimmeruntrim{display:none;}
+body.trim #trimmeruntrim{display:block;}
+#rollprevious:hover,#rollnext:hover,#rollhome:hover{text-decoration:underline;cursor:pointer;}
+#rollload{background:url('../k2/images/spinner.gif') no-repeat center center;top:16px;left:50%;margin-left:-8px;width:16px;height:16px;}
+#rollload span,#rollhome span{display:none;}
+#rollnext,#rollprevious,.navigation a{color:#666;font-weight:bold;}
+#rollpages{left:85px;color:#aaa;}
+#rollhover{position:absolute;top:7px;left:-47px;z-index:55;height:45px;background:url('../k2/images/rollhover.png') no-repeat center top;}
+#rollhover,#rolldates{width:100px;}
+#rollhover{top:8px;}
+#rolldates{position:absolute;color:#999;text-align:center;font-size:.9em;top:22px;margin:0;}
+#rollprevious{left:0;text-align:left;}
+#rollnext{right:0;text-align:right;}
+.emptypage #rollnavigation{visibility:hidden;}
+.firstpage #rollprevious{visibility:visible;}
+.firstpage #rollnext,
+.firstpage #rollhome{visibility:hidden;}
+.nthpage #rollnext,
+.nthpage #rollprevious,
+.nthpage #rollhome{visibility:visible;}
+.lastpage #rollnext,
+.lastpage #rollhome{visibility:visible;}
+.lastpage #rollprevious{visibility:hidden;}
+#pagetrackwrap{position:absolute;top:16px;left:140px;width:230px;}
+#pagetrack{height:6px;background:#eee;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;border:1px solid #ddd;margin-top:3px;}
+#pagehandle{width:6px;height:6px;margin:0 1px;background:#999;cursor:col-resize;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;}
+#pagehandle:hover{background:#333;}
+body.trim .entry-content,body.trim .entry-footer{display:none;}
+#texttrimmer{width:55px;height:15px;right:55px;}
+
+.nthpage #texttrimmer,
+.nthpage #pagetrackwrap,
+.lastpage #texttrimmer,
+.lastpage #pagetrackwrap{visibility:visible;}
+#trimmertrim:hover,#trimmeruntrim:hover{text-decoration:underline;}
+#trimmertrim,#trimmeruntrim{cursor:pointer;width:50px;text-align:center;color:#999;}
+.trimmed #trimmertrim{display:none;}
+#trimmeruntrim{display:none;}
+.trimmed #trimmeruntrim{display:block;}
+body.smartposition #trimmertrim,body.smartposition #trimmeruntrim{top:3px;}
+body.onepageonly .content{/* For the rare case of having only one page of content on the frontpage */
+padding-top:0;}
+.content .archivepages{/* Hide 'Page X of Y' when RA is active */
+display:none;}
