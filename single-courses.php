@@ -61,11 +61,6 @@ get_header(); ?>
 					$news_page = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 1, 'post_parent' => $post->ID, 'name' => "news" ) );
 					// echo '<pre>'.print_r($news_page,true).'</pre>';
 					while ( $news_page->have_posts() ) : $news_page->the_post();
-					?>
-						
-						<?php the_content(); ?><br />
-						
-					<?php
 						$news_page_id = get_the_ID();
 					endwhile; // End the loop. Whew. ?>
 					<ul class="apps_list">

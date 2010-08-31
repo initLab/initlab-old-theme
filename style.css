@@ -136,14 +136,15 @@ body a { outline: none; }
 
 .single .hentry { margin-bottom: 0; }
 
-.hfeed .panel { width: 50%; float: left; overflow: hidden; border-top: 1px solid #CCC; padding: 20px 0; }
+.hfeed .panel { width: 50%; float: left; overflow: hidden; padding: 20px 0; }
 .hfeed .panel .hdr { padding-bottom: 10px; }
 .hfeed .panel .hdr h2 { font-size: 180%; line-height: 200%;  }
 .hfeed .panel .cnt { }
 
 .hfeed .panel#news .cnt { margin-right: 20px; padding: 0 20px 20px 0; }
-.hfeed .panel#news ul { border-top: 1px solid #CCC; }
-.hfeed .panel#news li { padding: 5px; border-bottom: 1px solid #CCC; }
+.hfeed .panel#news ul {  }
+.hfeed .panel#news li { padding: 5px; border-bottom: 1px dotted #DDD; }
+.hfeed .panel#news li:last-child { border-bottom: none; }
 .hfeed .panel#news li a { display: block; }
 .hfeed .panel#news li .info { display: block; color: #999; }
 .hfeed .panel#news li .info span { padding-right: 10px; }
