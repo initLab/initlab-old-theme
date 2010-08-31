@@ -68,7 +68,8 @@ li { display: block; list-style: none outside;  }
 body { font: 12px/18px "Lucida Grande", Helvetica, Verdana, sans-serif; }
 hr { display: none; }
 
-.clear { display: block; height: 1px; overflow: hidden; clear: both; }
+.clear,
+.cleaner { display: block; height: 1px; overflow: hidden; clear: both; }
 
 .blog-title,
 table caption,

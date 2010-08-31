@@ -50,29 +50,32 @@ get_header(); ?>
 					<?php /* K2 Hook */ do_action('template_entry_foot'); ?>
 				</div><!-- .entry-footer -->
 			</div><!-- #entry-ID -->
+
+			<?php
 			
+			$ID = get_the_ID();
+			$news_page = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 1, 'post_parent' => $post->ID, 'name' => "news" ) );
+			// echo '<pre>'.print_r($news_page,true).'</pre>';
+
+			while ( $news_page->have_posts() ) : $news_page->the_post();
+				$news_page_id = get_the_ID();
+			endwhile; // End the loop. Whew.
+			
+			$news = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 10, 'post_parent' => $news_page_id ) );
+			
+			if ( $news->have_posts() && $news_page_id != NULL ) { ?>
 			<div class="panel" id="news">
 				<div class="hdr"><h2>Новини</h2></div>
 				<div class="cnt">
-					<?php
-					
-					$ID = get_the_ID();
-					
-					$news_page = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 1, 'post_parent' => $post->ID, 'name' => "news" ) );
-					// echo '<pre>'.print_r($news_page,true).'</pre>';
-					while ( $news_page->have_posts() ) : $news_page->the_post();
-						$news_page_id = get_the_ID();
-					endwhile; // End the loop. Whew. ?>
 					<ul class="apps_list">
 						
 						<?php
-						$news = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 10, 'post_parent' => $news_page_id ) );
 						while ( $news->have_posts() ) : $news->the_post();
 						?>
 							<li id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 								<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 								<span class="info">
-									<span class="date"><?php the_date(); ?></span><span class="author"><?php the_author(); ?></span>
+									<span class="date"><?php the_date(); ?></span><span class="author"><?php the_time(); ?></span>
 								</span>
 							</li>
 						<?php
@@ -83,14 +86,17 @@ get_header(); ?>
 					</ul>
 				</div>
 			</div>
+			<?php } ?>
 			
+			<?php
+			$program = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 1, 'post_parent' => $ID, 'name' => "program" ) );
+			// echo '<pre>'.print_r($program,true).'</pre>';
+			if ( $program->have_posts() ) {	?>
 			<div class="panel" id="program">
 				<div class="hdr"><h2>Програма</h2></div>
 				<div class="cnt hentry">
 					<div class="entry-content">
 						<?php
-						$program = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 1, 'post_parent' => $ID, 'name' => "program" ) );
-						// echo '<pre>'.print_r($program,true).'</pre>';
 						while ( $program->have_posts() ) : $program->the_post(); ?>
 					
 							<?php the_content(); ?>
@@ -100,6 +106,9 @@ get_header(); ?>
 					</div>
 				</div>
 			</div>			
+			<?php } ?>
+			
+			<div class="cleaner">&nbsp;</div>
 			
 			<div id="widgetspost" class="widgets">
 				<?php dynamic_sidebar('widgetspost'); ?>
