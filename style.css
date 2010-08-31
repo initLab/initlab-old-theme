@@ -80,6 +80,7 @@ h1, h2, h3, h4 { font-family: "Minion Pro", "Arno Pro", Georgia, Verdana, sans-s
 .widget.widget_calendar #calendar_wrap table#wp-calendar caption,
 .navigation a,
 .hfeed .page-head h1,
+.hfeed .panel .hdr h2,
 .hentry h1,
 .hentry h2,
 .hentry h3,
@@ -132,6 +133,19 @@ body a { outline: none; }
 .hfeed .page-head h1 { font-size: 290%; margin-bottom: 40px; text-align: left; padding-bottom: 20px; border-bottom: 1px solid #CCC; color: #369; }
 
 .hentry { margin: 0 0 60px 0; overflow: hidden; }
+
+.hfeed .panel { width: 50%; float: left; overflow: hidden; border-top: 1px solid #CCC; padding: 20px 0; }
+.hfeed .panel .hdr { padding-bottom: 10px; }
+.hfeed .panel .hdr h2 { font-size: 180%; line-height: 200%;  }
+.hfeed .panel .cnt { }
+
+.hfeed .panel#news .cnt { border-right: 1px solid #CCC; margin-right: 20px; padding: 0 20px 20px 0; }
+.hfeed .panel#news ul { border-top: 1px solid #CCC; }
+.hfeed .panel#news li { padding: 5px; border-bottom: 1px solid #CCC; }
+.hfeed .panel#news li a { display: block; }
+.hfeed .panel#news li .info { display: block; color: #999; }
+.hfeed .panel#news li .info span { padding-right: 10px; }
+.hfeed .panel#news li .info .author { padding-left: 10px; border-left: 1px solid #CCC; }
 
 .trim .hentry { margin-bottom: 20px; }
 
