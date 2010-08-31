@@ -181,6 +181,11 @@ body a { outline: none; }
 .hentry .entry-content ol li { list-style: decimal outside; }
 .hentry .entry-content .alignright { float: right; margin-left: 15px; }
 
+.hentry .entry-content table { margin-bottom: 20px; border-collapse: collapse; border: 1px solid #CCC; }
+.hentry .entry-content table td,
+.hentry .entry-content table th { border: 1px solid #CCC; padding: 5px 8px; }
+.hentry .entry-content table th { background: #EEE; }
+
 .hentry .entry-content ul.image-list { overflow: hidden; padding: 0;  }
 .hentry .entry-content ul.image-list:after { clear: both; }
 .hentry .entry-content ul.image-list li { list-style: none outside; display: block; float: left; margin: 0 20px 20px 0; text-align: center;  }
