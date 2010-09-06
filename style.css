@@ -136,6 +136,8 @@ body a { outline: none; }
 .hentry { margin: 0 0 60px 0; overflow: hidden; }
 
 .single .hentry { margin-bottom: 0; }
+.single .navigation { border: solid #CCC; border-width: 1px 0; margin-top: 40px; padding-top: 20px; padding-bottom: 10px; overflow: hidden; }
+
 
 .hfeed .panel { width: 50%; float: left; overflow: hidden; padding: 20px 0; }
 .hfeed .panel .hdr { padding-bottom: 10px; }
@@ -166,7 +168,7 @@ body a { outline: none; }
 .hentry .entry-header h3 { font-size: 240%; line-height: 110%; margin: 0 0 5px 0; }
 .hentry .entry-header a { color: #000; }
 .hentry .entry-header a:hover { text-decoration: none; }
-.hentry .entry-header .entry-edit { display: none;  }
+.hentry .entry-header .entry-edit {  }
 .hentry .entry-header .entry-meta { color: #999; }
 
 .hentry .entry-content { color: #333; }
@@ -237,6 +239,7 @@ body.home .navigation { padding-right: 70px; }
 
 .comments ul#commentlist { border-top: 1px solid #CCC; padding: 0; }
 .comments ul#commentlist li {  }
+.comments ul#commentlist li#leavecomment { display: none; }
 .comments ul#commentlist li .comment { border-bottom: 1px solid #CCC; padding: 10px; }
 .comments ul#commentlist li .comment p { padding-bottom: 10px; }
 .comments ul#commentlist li .comment .comment-head { clear: both; overflow: hidden; padding-bottom: 10px; }

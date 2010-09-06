@@ -3,8 +3,9 @@
 	add_filter('gallery_style', create_function('$a', 'return preg_replace("%<style type=\'text/css\'>(.*?)</style>%s", "", $a);'));
 
 	function my_get_posts( $query ) {
-		if ( is_home() )
-			$query->set( 'post_type', array( 'post', 'quotes' ) );
+
+		if ( is_home() && false == $query->query_vars['suppress_filters'] )
+			$query->set( 'post_type', array( 'post', 'events' ) );
 
 		return $query;
 	}

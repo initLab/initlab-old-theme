@@ -1,10 +1,6 @@
 <?php
 /**
  * The template for displaying all single posts.
- *
- * @package WordPress
- * @subpackage K2
- * @since K2 unknown
  */
 
 get_header(); ?>
@@ -23,7 +19,7 @@ get_header(); ?>
 		<?php /* K2 Hook */ do_action('template_primary_begin'); ?>
 
 		<div class="content hfeed">
-
+			
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 			<div id="entry-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -51,16 +47,12 @@ get_header(); ?>
 				<div class="entry-footer">
 					<?php wp_link_pages( array('before' => '<div class="entry-pages"><span>' . __('Pages:', 'k2') . '</span>', 'after' => '</div>' ) ); ?>
 
-					<div class="entry-meta">
-						<?php k2_entry_meta(2); ?>
-					</div><!-- .entry-meta -->
-
 					<?php /* K2 Hook */ do_action('template_entry_foot'); ?>
 				</div><!-- .entry-footer -->
 			</div><!-- #entry-ID -->
 
-			<?php /* Top Navigation */ k2_navigation('nav-below'); ?>
-
+			<div class="cleaner">&nbsp;</div>
+			
 			<div id="widgetspost" class="widgets">
 				<?php dynamic_sidebar('widgetspost'); ?>
 			</div>
