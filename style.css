@@ -228,6 +228,7 @@ body a { outline: none; }
 
 body.home .navigation { padding-right: 70px; }
 
+#nav-below.navigartion { margin-top: 20px; border-top: 1px solid #CCC; }
 
 /* --- Comments ------------------------------------------------------------------------------------ */
 .comments { margin-top: 70px; overflow: hidden;  }
@@ -330,6 +331,8 @@ body.home .navigation { padding-right: 70px; }
 .widget.widget_recent_comments { }
 .widget.widget_recent_comments li.recentcomments a {  }
 .widget.widget_recent_comments li.recentcomments a.url {  }
+
+#widgetspost .widget { margin-top: 20px; }
 
 #widgets-bottom { margin-top: 70px; padding-top: 20px; border-top: 1px solid #CCC; }
 #widgets-bottom .widget { width: 33%; float: left;  }
