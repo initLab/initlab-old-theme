@@ -16,6 +16,11 @@
 get_header(); ?>
 
 <div class="wrapper">
+	<?php if ( is_active_sidebar('homepage') ) : ?>
+	<div id="welcome" class="widgets">
+		<?php dynamic_sidebar('homepage'); ?>
+	</div>
+	<?php endif; ?>
 
 	<?php if ( is_active_sidebar('widgets-top') ) : ?>
 	<div id="widgets-top" class="widgets">
@@ -24,7 +29,7 @@ get_header(); ?>
 	<?php endif; ?>
 
 	<div class="primary">
-		
+
 		<a name="startcontent"></a>
 
 		<?php /* K2 Hook */ do_action('template_primary_begin'); ?>
@@ -34,11 +39,11 @@ get_header(); ?>
 		<div class="content hfeed">
 			<?php include(TEMPLATEPATH . '/app/display/theloop.php'); ?>
 		</div>
-		
-		<?php /* Bottom Navigation */ k2_navigation('nav-below'); ?>
-		
+
+		<?php /* Bottom Navigation  k2_navigation('nav-below'); */ ?>
+
 		<?php /* K2 Hook */ do_action('template_primary_end'); ?>
-		
+
 	</div>
 
 	<?php get_sidebar(); ?>
