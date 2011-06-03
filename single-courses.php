@@ -19,21 +19,71 @@ get_header(); ?>
 		<?php /* K2 Hook */ do_action('template_primary_begin'); ?>
 
 		<div class="content hfeed">
-			
+
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+			<?php
+
+				$ID = get_the_ID();
+				$ancestors = get_post_ancestors( $ID );
+				$news_page = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 1, 'post_parent' => $ID, 'name' => "news" ) );
+
+				while ( $news_page->have_posts() ) : $news_page->the_post();
+					$news_page_id = get_the_ID();
+				endwhile; // End the loop. Whew.
+				wp_reset_postdata();
+
+				$news = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 10, 'post_parent' => $news_page_id ) );
+				$program = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 1, 'post_parent' => $ID, 'name' => "program" ) );
+
+				if($post->post_parent)
+				{
+					if($post->post_name=="news")
+					{
+						$page_type = 'newshomepage';
+					}
+					elseif($post->post_name=="program")
+					{
+						$page_type = 'programpage';
+					}
+					else
+					{
+						$page_type = 'newspage';
+					}
+				}
+				else
+				{
+					$page_type = 'coursehomepage';
+				}
+
+			?>
 
 			<div id="entry-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<div class="entry-header">
-					<h1 class="entry-title">
-						<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php k2_permalink_title(); ?>"><?php the_title(); ?></a>
-					</h1>
+					<?php if($page_type=='newspage'){ ?>
+						Новина за курс
+					<?php }elseif($page_type=='programpage'){ ?>
+						Програма за курс
+					<?php } ?>
+					<?php if($page_type!='coursehomepage' && $page_type != 'newshomepage'){ ?>
+						&raquo; <a href="<?php echo get_permalink($ancestors[count($ancestors)-1]); ?>"><?php echo get_the_title($ancestors[count($ancestors)-1]); ?></a>
+					<?php } ?>
 
-					<?php /* Edit Link */ edit_post_link( __('Edit', 'k2'), '<span class="entry-edit">', '</span>' ); ?>
+					<?php if($page_type=='newshomepage'){ ?>
+						<h1 class="entry-title">
+							Новини към курс &raquo; <a href="<?php echo get_permalink($ancestors[count($ancestors)-1]); ?>"><?php echo get_the_title($ancestors[count($ancestors)-1]); ?></a>
+						</h1>
+					<?php }else{ ?>
+						<h1 class="entry-title">
+							<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php k2_permalink_title(); ?>"><?php the_title(); ?></a>
+						</h1>
 
-					<div class="entry-meta">
-						<?php k2_entry_meta(1); ?>
-					</div> <!-- .entry-meta -->
+						<?php /* Edit Link */ edit_post_link( __('Edit', 'k2'), '<span class="entry-edit">', '</span>' ); ?>
 
+						<div class="entry-meta">
+							<?php k2_entry_meta(1); ?>
+						</div> <!-- .entry-meta -->
+					<?php } ?>
 					<?php /* K2 Hook */ do_action('template_entry_head'); ?>
 				</div><!-- .entry-header -->
 
@@ -52,23 +102,12 @@ get_header(); ?>
 			</div><!-- #entry-ID -->
 
 			<?php
-			
-			$ID = get_the_ID();
-			$news_page = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 1, 'post_parent' => $post->ID, 'name' => "news" ) );
-			// echo '<pre>'.print_r($news_page,true).'</pre>';
-
-			while ( $news_page->have_posts() ) : $news_page->the_post();
-				$news_page_id = get_the_ID();
-			endwhile; // End the loop. Whew.
-			
-			$news = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 10, 'post_parent' => $news_page_id ) );
-			
 			if ( $news->have_posts() && $news_page_id != NULL ) { ?>
 			<div class="panel" id="news">
 				<div class="hdr"><h2>Новини</h2></div>
 				<div class="cnt">
 					<ul class="apps_list">
-						
+
 						<?php
 						while ( $news->have_posts() ) : $news->the_post();
 						?>
@@ -80,16 +119,15 @@ get_header(); ?>
 							</li>
 						<?php
 						endwhile; // End the loop. Whew.
-						
-						
+
+
 						?>
 					</ul>
 				</div>
 			</div>
 			<?php } ?>
-			
+
 			<?php
-			$program = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 1, 'post_parent' => $ID, 'name' => "program" ) );
 			// echo '<pre>'.print_r($program,true).'</pre>';
 			if ( $program->have_posts() ) {	?>
 			<div class="panel" id="program">
@@ -98,25 +136,27 @@ get_header(); ?>
 					<div class="entry-content">
 						<?php
 						while ( $program->have_posts() ) : $program->the_post(); ?>
-					
+
 							<?php the_content(); ?>
-							
+
 						<?php
 						endwhile; // End the loop. Whew	 ?>
 					</div>
 				</div>
-			</div>			
+			</div>
 			<?php } ?>
-			
+
 			<div class="cleaner">&nbsp;</div>
-			
+
 			<div id="widgetspost" class="widgets">
 				<?php dynamic_sidebar('widgetspost'); ?>
 			</div>
 
-			<div class="comments">
-				<?php comments_template(); ?>
-			</div><!-- .comments -->
+			<?php if($page_type == "coursehomepage"){ ?>
+				<div class="comments">
+					<?php comments_template(); ?>
+				</div><!-- .comments -->
+			<?php } ?>
 
 		<?php endwhile; else: define('K2_NOT_FOUND', true); ?>
 
@@ -139,12 +179,5 @@ get_header(); ?>
 	<?php endif; ?>
 
 </div><!-- .wrapper -->
-
-<?php
-	/* Initialize Rolling Archives if needed */
-	if ( defined('DOING_AJAX') and true == DOING_AJAX ) {
-		add_action( 'k2_dynamic_content', array('K2', 'setup_rolling_archives') );
-	}
-?>
 
 <?php get_footer(); ?>

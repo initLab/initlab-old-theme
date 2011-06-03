@@ -24,7 +24,7 @@ get_header(); ?>
 	<?php endif; ?>
 
 	<div class="primary">
-		
+
 		<a name="startcontent"></a>
 
 		<?php /* K2 Hook */ do_action('template_primary_begin'); ?>
@@ -32,19 +32,22 @@ get_header(); ?>
 		<?php /* Top Navigation  k2_navigation('nav-above'); */ ?>
 
 		<div class="content hfeed">
-						
+
 			<?php
 
 			// Post index for semantic classes
 			$post_index = 1;
 
+			global $wp_query;
+			$args = array_merge( $wp_query->query, array( 'post_type' => 'courses', 'posts_per_page' => 10, 'meta_key' => 'project', 'meta_value' => 'true' ) );
+			query_posts( $args );
+
 			while ( have_posts() ): the_post(); ?>
-			
-				<?php if ($post->post_parent != '') continue; ?>
-				
+
+
 				<div id="entry-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<div class="entry-header">
-						
+
 						<h3 class="entry-title">
 							<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php k2_permalink_title(); ?>"><?php the_title(); ?></a>
 						</h3>
@@ -79,13 +82,13 @@ get_header(); ?>
 				</div><!-- #entry-ID -->
 
 			<?php endwhile; /* End The Loop */ ?>
-			
+
 		</div>
-		
+
 		<?php /* Bottom Navigation */ k2_navigation('nav-below'); ?>
-		
+
 		<?php /* K2 Hook */ do_action('template_primary_end'); ?>
-		
+
 	</div>
 
 	<?php get_sidebar(); ?>
