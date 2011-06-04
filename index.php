@@ -16,11 +16,6 @@
 get_header(); ?>
 
 <div class="wrapper">
-	<?php if ( is_active_sidebar('homepage') ) : ?>
-	<div id="welcome" class="widgets">
-		<?php dynamic_sidebar('homepage'); ?>
-	</div>
-	<?php endif; ?>
 
 	<?php if ( is_active_sidebar('widgets-top') ) : ?>
 	<div id="widgets-top" class="widgets">
@@ -31,6 +26,13 @@ get_header(); ?>
 	<div class="primary">
 
 		<a name="startcontent"></a>
+
+		<?php if ( is_home() ) : ?>
+		<div id="welcome" class="widgets">
+			<?php dynamic_sidebar('homepage'); ?>
+		</div>
+		<?php endif; ?>
+
 
 		<?php /* K2 Hook */ do_action('template_primary_begin'); ?>
 
