@@ -2,15 +2,6 @@
 
 	add_filter('gallery_style', create_function('$a', 'return preg_replace("%<style type=\'text/css\'>(.*?)</style>%s", "", $a);'));
 
-	function my_get_posts( $query ) {
-
-		if ( is_home() && false == $query->query_vars['suppress_filters'] )
-			$query->set( 'post_type', array( 'post', 'articles', 'events', 'projects', 'courses', 'news' ) );
-
-		return $query;
-	}
-	//add_filter( 'pre_get_posts', 'my_get_posts' );
-
 	function remove_wp_widget_recent_comments_style() {
 	      remove_filter('wp_head', 'wp_widget_recent_comments_style');
 	}
@@ -37,6 +28,36 @@
 
 	}
 
+	// Fonts loading from Google Web Fonts direcory. JavaScrip loading gives us feedback on the loaded status of every font.
+	function load_fonts()
+	{																		?>
+		<script
+			type="text/javascript"
+			src="http://www.google.com/jsapi?key=ABQIAAAA0m4OXZCc-BMR9w3Ml16ZMxQ8-tzA9NU1mD3xYgw4R-6I36tNQRS05e8e0tgHafN4dfp4Nb9qtSbkOw">
+		</script>
+		<script type="text/javascript">
+			WebFontConfig = {
+				google: {
+					families: [ 'PT Sans', 'PT Serif' ]
+				}
+			}
+
+			function wf_load()
+			{
+				var wf = document.createElement('script');
+				wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+				wf.type = 'text/javascript';
+				wf.async = 'true';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(wf, s);
+			}
+			wf_load();
+		</script>
+		<?php
+	}
+	add_filter( 'wp_head', 'load_fonts');
+
+	// Content selection function. Used primarily on the homepage.
 	function selectContent($type, $count, $title) {
 
 		if($type=='courses')
@@ -80,5 +101,7 @@
 
 	<?php
 	wp_reset_postdata();
-	} ?>
+	}
+
+?>
 
