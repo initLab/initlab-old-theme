@@ -94,6 +94,9 @@
 							do_action('template_entry_head');
 						?>
 					</span>
+					<?php if($type=="post"){?>
+						<?php the_excerpt(); ?>
+					<?php } ?>
 				</li>
 			<?php endwhile; /* End The Loop */ ?>
 			</ul>

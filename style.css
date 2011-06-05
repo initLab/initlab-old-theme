@@ -89,7 +89,7 @@ body a { outline: none; }
 #header .headermenu li.admintab a { position: static; background: #FFF; }
 
 /* --- Posts ------------------------------------------------------------------------------------ */
-.hfeed { clear: both; padding-right: 100px; }
+.hfeed { clear: both; padding-right: 100px; overflow: hidden; }
 
 .hfeed .page-head h1 { font-size: 290%; margin-bottom: 40px; text-align: left; padding-bottom: 20px; border-bottom: 1px solid #CCC; color: #369; }
 
@@ -290,8 +290,23 @@ body a { outline: none; }
 #widgets-bottom .widget { width: 33%; float: left;  }
 #widgets-bottom .widget ul { padding: 0 0.5em; margin: 0; }
 
-/* --- Search Widget,incl. Livesearch --------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* --- Homepage styles -------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+.home #welcome { padding-bottom: 2em; margin-bottom: 2em; border-bottom: 1px solid #CCC; }
+.home .hfeed .mod { width: 50%; float: left; padding: 0 0 1em 0; }
+.home .hfeed .mod h2 { padding-bottom: 0.5em; }
+.home .hfeed .mod ul.cnt { padding: 0 2.5em 0 0; }
+.home .hfeed .mod ul.cnt li { padding: 0 0 0.5em 0; }
+.home .hfeed .mod ul.cnt li .entry-header a { font-weight: bold; font-size: 1.2em;}
+.home .hfeed .mod .entry-meta { display: block; color: #999; font-size: 0.9em; }
 
+.home .hfeed .mod#courses,
+.home .hfeed .mod#projects { border: solid #CCC; border-width: 1px 0 0 0; padding: 2em 0 0 0; margin: 1em 0 0 0; } 
+.home .hfeed .mod#post { width: 100%; clear: both; float: none; padding: 2em 0 0 0; margin: 2em 0 0 0; border-top: 1px solid #CCC; }
+.home .hfeed .mod#post ul.cnt li { padding-bottom: 1.5em; }
+.home .hfeed .mod#post ul.cnt li .entry-header a { font-size: 1.4em; }
+.home .hfeed .mod#post ul.cnt li .entry-content { display: block; padding: 1em 0; }
+
+/* --- Search Widget,incl. Livesearch --------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 input[type=text],
 textarea{ color: #444; padding: 1px; margin: 0; }
 
