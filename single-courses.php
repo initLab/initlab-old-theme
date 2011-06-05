@@ -41,6 +41,7 @@ get_header(); ?>
 					if($post->post_name=="news")
 					{
 						$page_type = 'newshomepage';
+						$news = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 10, 'post_parent' => $ID ) );
 					}
 					elseif($post->post_name=="program")
 					{
@@ -56,53 +57,81 @@ get_header(); ?>
 					$page_type = 'coursehomepage';
 				}
 
+				//echo $page_type;
 			?>
+
+			<?php if($page_type=='newshomepage'){ ?>
 
 			<div id="entry-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<div class="entry-header">
-					<?php if($page_type=='newspage'){ ?>
-						Новина за курс
-					<?php }elseif($page_type=='programpage'){ ?>
-						Програма за курс
-					<?php } ?>
-					<?php if($page_type!='coursehomepage' && $page_type != 'newshomepage'){ ?>
-						&raquo; <a href="<?php echo get_permalink($ancestors[count($ancestors)-1]); ?>"><?php echo get_the_title($ancestors[count($ancestors)-1]); ?></a>
-					<?php } ?>
-
-					<?php if($page_type=='newshomepage'){ ?>
-						<h1 class="entry-title">
-							Новини към курс &raquo; <a href="<?php echo get_permalink($ancestors[count($ancestors)-1]); ?>"><?php echo get_the_title($ancestors[count($ancestors)-1]); ?></a>
-						</h1>
-					<?php }else{ ?>
-						<h1 class="entry-title">
-							<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php k2_permalink_title(); ?>"><?php the_title(); ?></a>
-						</h1>
-
-						<?php /* Edit Link */ edit_post_link( __('Edit', 'k2'), '<span class="entry-edit">', '</span>' ); ?>
-
-						<div class="entry-meta">
-							<?php k2_entry_meta(1); ?>
-						</div> <!-- .entry-meta -->
-					<?php } ?>
-					<?php /* K2 Hook */ do_action('template_entry_head'); ?>
+					<h2>Курс &raquo; "<a href="<?php echo get_permalink($ancestors[count($ancestors)-1]); ?>"><?php echo get_the_title($ancestors[count($ancestors)-1]); ?></a>"</h2>
+					<h1 class="entry-title">Новини</h1>
 				</div><!-- .entry-header -->
+				<div class="entry-content">
+					<ul class="newslist">
 
+						<?php
+						while ( $news->have_posts() ) : $news->the_post();
+						?>
+							<li id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+								<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+								<span class="info">
+									<span class="date">Публикувано на <?php the_date(); ?></span> в <span class="author"><?php the_time(); ?></span>
+								</span>
+							</li>
+						<?php
+						endwhile; // End the loop. Whew.
+						wp_reset_postdata();
+						?>
+					</ul>
+				</div>
+			</div><!-- #entry-ID -->
+
+			<?php }else { ?>
+
+			<div id="entry-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<div class="entry-header">
+					<h2>
+						<?php if($page_type!="coursehomepage"){ ?>
+							Курс &raquo;
+							"<a href="<?php echo get_permalink($ancestors[count($ancestors)-1]); ?>"><?php echo get_the_title($ancestors[count($ancestors)-1]); ?></a>" &raquo;
+						<?php } ?>
+						<?php if($page_type=='newspage'){ ?>
+						<a href="<?php echo get_permalink($ancestors[0]); ?>">Новини</a>
+						<?php }elseif($page_type=='programpage'){ ?>
+							Програма
+						<?php } ?>
+					</h2>
+					<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php k2_permalink_title(); ?>"><?php the_title(); ?></a></h1>
+
+					<?php /* Edit Link */ edit_post_link( __('Edit', 'k2'), '<span class="entry-edit">', '</span>' ); ?>
+
+					<?php /* K2 Hook */ do_action('template_entry_head'); ?>
+
+				</div><!-- .entry-header -->
 				<div class="entry-content">
 					<?php if ( function_exists('has_post_thumbnail') and has_post_thumbnail() ) : ?>
 						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'medium', array( 'class' => 'alignleft' ) ); ?></a>
 					<?php endif; ?>
 					<?php the_content( sprintf( __('Continue reading \'%s\'', 'k2'), the_title('', '', false) ) ); ?>
 				</div><!-- .entry-content -->
-
 				<div class="entry-footer">
+
+					<div class="entry-meta">
+						<?php k2_entry_meta(1); ?>
+					</div> <!-- .entry-meta -->
+
 					<?php wp_link_pages( array('before' => '<div class="entry-pages"><span>' . __('Pages:', 'k2') . '</span>', 'after' => '</div>' ) ); ?>
 
 					<?php /* K2 Hook */ do_action('template_entry_foot'); ?>
+
 				</div><!-- .entry-footer -->
 			</div><!-- #entry-ID -->
 
 			<?php
-			if ( $news->have_posts() && $news_page_id != NULL ) { ?>
+			}
+
+			if ( $news->have_posts() && ($news_page_id != NULL )) { ?>
 			<div class="panel" id="news">
 				<div class="hdr"><h2>Новини</h2></div>
 				<div class="cnt">

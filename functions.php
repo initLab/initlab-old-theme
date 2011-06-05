@@ -38,7 +38,21 @@
 	}
 
 	function selectContent($type, $count, $title) {
-		$content = new WP_Query( array( 'post_type' => $type, 'showposts' => $count ) ); ?>
+
+		if($type=='courses')
+		{
+			$content = new WP_Query( array( 'post_type' => $type, 'meta_key' => 'project', 'meta_value' => 'true', 'showposts' => $count ) );
+		}
+		elseif($type=='projects')
+		{
+			$content = new WP_Query( array( 'post_type' => $type, 'meta_key' => 'project', 'meta_value' => 'true', 'showposts' => $count ) );
+		}
+		else
+		{
+			$content = new WP_Query( array( 'post_type' => $type, 'showposts' => $count ) );
+		}
+
+		?>
 
 		<div id="news" class="mod">
 		<div class="hdr"><h2><?php echo $title; ?></h2></div>

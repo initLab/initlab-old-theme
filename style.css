@@ -71,23 +71,15 @@ hr { display: none; }
 .clear,
 .cleaner { display: block; height: 1px; overflow: hidden; clear: both; }
 
-.blog-title,
-table caption,
-#header .description,
-h1, h2, h3, h4 { font-family: "Minion Pro", "Arno Pro", Georgia, Verdana, sans-serif; }
+.widget.widget_calendar #calendar_wrap table#wp-calendar caption, .navigation a,
+h1, h2, h3, h4, h5, h6 { font-family: "PTSansNarrowBold", sans-serif; }
 
-.comments h4,
-.widget h4,
-.widget.widget_calendar #calendar_wrap table#wp-calendar caption,
-.navigation a,
-.hfeed .page-head h1,
-.hfeed .panel .hdr h2,
-.hentry h1,
-.hentry h2,
-.hentry h3,
-.hentry h4,
-.hentry h5,
-.hentry h6 { font-family: "PTSansNarrowBold", sans-serif; }
+h1 { font-size: 240%; line-height: 100%; margin-bottom: 20px; }
+h2 { font-size: 210%; line-height: 100%; margin-bottom: 10px; }
+h3 { font-size: 180%; line-height: 100%; margin-bottom: 10px; }
+h4 { font-size: 160%; line-height: 100%; margin-bottom: 5px; }
+h5 { font-size: 140%; line-height: 100%; }
+h6 { font-size: 100%; line-height: 100%; }
 
 #header .headermenu li a,
 #header #site-title { font-family: "PTSansRegular", sans-serif; }
@@ -138,7 +130,6 @@ body a { outline: none; }
 .single .hentry { margin-bottom: 0; }
 .single .navigation { border: solid #CCC; border-width: 1px 0; margin-top: 40px; padding-top: 20px; padding-bottom: 10px; overflow: hidden; }
 
-
 .hfeed .panel { width: 50%; float: left; overflow: hidden; padding: 20px 0; }
 .hfeed .panel .hdr { padding-bottom: 10px; }
 .hfeed .panel .hdr h2 { font-size: 180%; line-height: 200%;  }
@@ -155,19 +146,13 @@ body a { outline: none; }
 
 .trim .hentry { margin-bottom: 20px; }
 
-.hentry h1 { font-size: 240%; line-height: 100%; margin-bottom: 20px; }
-.hentry h2 { font-size: 210%; line-height: 100%; margin-bottom: 10px; }
-.hentry h3 { font-size: 180%; line-height: 100%; margin-bottom: 10px; }
-.hentry h4 { font-size: 160%; line-height: 100%; margin-bottom: 5px; }
-.hentry h5 { font-size: 140%; line-height: 100%; }
-.hentry h6 { font-size: 100%; line-height: 100%; }
 
-.hentry .entry-header { padding-bottom: 20px; }
-.hentry .entry-header h1 { font-size: 270%; line-height: 110%; margin: 0 0 10px 0; }
-.hentry .entry-header h2 { font-size: 240%; line-height: 110%; margin: 0 0 5px 0; }
-.hentry .entry-header h3 { font-size: 240%; line-height: 110%; margin: 0 0 5px 0; }
+.hentry .entry-header { padding-bottom: 10px; }
+.hentry .entry-header h1 { font-size: 330%; line-height: 110%; margin: 0 0 10px 0; padding: 0; }
+.hentry .entry-header h2 { font-size: 220%; line-height: 110%; margin: 0 0 5px 0; }
+.hentry .entry-header h3 { font-size: 200%; line-height: 110%; margin: 0 0 5px 0; }
 .hentry .entry-header a { color: #000; }
-.hentry .entry-header a:hover { text-decoration: none; }
+.hentry .entry-header a:hover { text-decoration: underline; color: #369; }
 .hentry .entry-header .entry-edit {  }
 .hentry .entry-header .entry-meta { color: #999; }
 
@@ -214,7 +199,7 @@ body a { outline: none; }
 .hentry .entry-content dl dt { font-weight: bold; }
 .hentry .entry-content dl dd { padding: 0 0 20px 20px; }
 
-.hentry .entry-footer { clear: both; }
+.hentry .entry-footer { clear: both; border-top: 1px dotted #CCC; color: #666; padding: 5px 0 0 0; margin: 20px 0 0 0; text-align: right; }
 .hentry .entry-footer a:hover { text-decoration: underline; }
 
 #tag-cloud { padding-bottom: 30px; }
