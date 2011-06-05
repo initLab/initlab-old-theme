@@ -42,14 +42,24 @@ get_header(); ?>
 					{
 						$page_type = 'newshomepage';
 						$news = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 10, 'post_parent' => $ID ) );
+						$program = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 1, 'post_parent' => $ancestors[count($ancestors)-1], 'name' => "program" ) );
 					}
 					elseif($post->post_name=="program")
 					{
 						$page_type = 'programpage';
+						$news_page = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 10, 'post_parent' => $ancestors[count($ancestors)-1], 'name' => 'news' ) );
+
+						while ( $news_page->have_posts() ) : $news_page->the_post();
+							$news_page_id = get_the_ID();
+						endwhile; // End the loop. Whew.
+						wp_reset_postdata();
+
+						$news = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 10, 'post_parent' => $news_page_id ) );
 					}
 					else
 					{
 						$page_type = 'newspage';
+						$program = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 1, 'post_parent' => $ancestors[count($ancestors)-1], 'name' => "program" ) );
 					}
 				}
 				else
@@ -85,6 +95,7 @@ get_header(); ?>
 						?>
 					</ul>
 				</div>
+				<div class="entry-footer"></div>
 			</div><!-- #entry-ID -->
 
 			<?php }else { ?>
@@ -117,10 +128,11 @@ get_header(); ?>
 				</div><!-- .entry-content -->
 				<div class="entry-footer">
 
-					<div class="entry-meta">
-						<?php k2_entry_meta(1); ?>
-					</div> <!-- .entry-meta -->
-
+					<?php if($page_type=="newspage"){ ?>
+						<div class="entry-meta">
+							<?php k2_entry_meta(1); ?>
+						</div> <!-- .entry-meta -->
+					<?php } ?>
 					<?php wp_link_pages( array('before' => '<div class="entry-pages"><span>' . __('Pages:', 'k2') . '</span>', 'after' => '</div>' ) ); ?>
 
 					<?php /* K2 Hook */ do_action('template_entry_foot'); ?>
@@ -128,10 +140,30 @@ get_header(); ?>
 				</div><!-- .entry-footer -->
 			</div><!-- #entry-ID -->
 
-			<?php
-			}
+			<?php } ?>
 
-			if ( $news->have_posts() && ($news_page_id != NULL )) { ?>
+			<?php
+			if ( $program->have_posts() ) {	?>
+			<div class="panel" id="program">
+				<div class="hdr"><h2>Програма</h2></div>
+				<div class="cnt hentry">
+					<div class="entry-content">
+						<?php
+						while ( $program->have_posts() ) : $program->the_post(); ?>
+
+							<?php the_content(); ?>
+
+						<?php
+						endwhile; // End the loop. Whew
+						wp_reset_postdata();
+						?>
+					</div>
+				</div>
+			</div>
+			<?php } ?>
+
+			<?php
+			if ( $news->have_posts()) { ?>
 			<div class="panel" id="news">
 				<div class="hdr"><h2>Новини</h2></div>
 				<div class="cnt">
@@ -148,29 +180,10 @@ get_header(); ?>
 							</li>
 						<?php
 						endwhile; // End the loop. Whew.
-
-
+						wp_reset_postdata();
 						?>
+
 					</ul>
-				</div>
-			</div>
-			<?php } ?>
-
-			<?php
-			// echo '<pre>'.print_r($program,true).'</pre>';
-			if ( $program->have_posts() ) {	?>
-			<div class="panel" id="program">
-				<div class="hdr"><h2>Програма</h2></div>
-				<div class="cnt hentry">
-					<div class="entry-content">
-						<?php
-						while ( $program->have_posts() ) : $program->the_post(); ?>
-
-							<?php the_content(); ?>
-
-						<?php
-						endwhile; // End the loop. Whew	 ?>
-					</div>
 				</div>
 			</div>
 			<?php } ?>
