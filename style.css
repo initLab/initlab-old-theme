@@ -74,6 +74,9 @@ body a { outline: none; }
 
 #footer { border-top: 1px solid #CCC; padding-top: 20px; clear: both; margin-top: 20px; padding-bottom: 30px; }
 
+#page.no-sidebar .primary { width: auto; float: none; clear: both; }
+#page.no-sidebar .hfeed { padding-right: 0; }
+
 /* --- Sidebar stuff ------------------------------------------------------------------------------------ */
 .secondary { padding-top: 4px; }
 .secondary#widgets-sidebar-1 { background: url(images/labber2.png) right top no-repeat; }
@@ -314,7 +317,7 @@ body a { outline: none; }
 
 #widgetspost .widget { margin-top: 1em; }
 
-#widgets-bottom { margin-top: 4em; padding-top: 1em; border-top: 1px solid #CCC; overflow: hidden; }
+#widgets-bottom { margin-top: 4em; padding-top: 1em; border-top: 1px solid #CCC; overflow: hidden; clear: both; }
 #widgets-bottom .widget { width: 33%; float: left;  }
 #widgets-bottom .widget ul { padding: 0 0.5em; margin: 0; }
 
@@ -381,12 +384,6 @@ body.custom-post-type-archive #rollingarchives,
 body.custom-post-type-archive #rollingarchivesbg { display: none; }
 
 /* --- calendar --------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-.page.slug-calendar #widgets-sidebar-1 { display: none; }
-.page.slug-calendar #widgets-bottom { clear: both; }
-
-.page.slug-calendar .wrapper { overflow: hidden; }
-.page.slug-calendar .primary { width: 100%;  }
-.page.slug-calendar .primary .hfeed { padding: 0;  }
 .page.slug-calendar .primary .hfeed .kjo-link p { display: none !important; }
 
 .entry-content table.calendar-table { width: 100%;  table-layout: fixed; border-collapse: collapse; }
