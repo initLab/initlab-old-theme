@@ -34,6 +34,18 @@
 			<div class="cleaner"></div>
 			<p><a href="/archive">По-Стари &raquo;</a></p>
 
+			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+			<div class="mod" id="calendarmod">
+				<div class="hdr"><h2>Календар</h2></div>
+				<div class="hentry">
+					<div class="entry-content">
+						<?php the_content(); ?>
+					</div>
+				</div>
+			</div>
+			<?php endwhile; endif; ?>
+
+
 		</div><!-- .content .hfeed -->
 
 	</div><!-- .primary -->

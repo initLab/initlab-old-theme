@@ -57,7 +57,7 @@ body { background: #FFF; }
 body a { outline: none; }
 
 #page,
-#footer { width: auto; min-width: 960px; max-width: 1100px; margin: 0 0 0 80px; clear: both; }
+#footer { width: 95%; min-width: 980px; margin: 0 auto; clear: both; }
 
 .primary,
 .secondary { float: left; }
@@ -89,7 +89,7 @@ body a { outline: none; }
 #header .headermenu li.admintab a { position: static; background: #FFF; }
 
 /* --- Posts ------------------------------------------------------------------------------------ */
-.hfeed { clear: both; padding-right: 100px; overflow: hidden; }
+.hfeed { clear: both; padding-right: 4em; overflow: hidden; }
 
 .hfeed .page-head h1 { font-size: 290%; margin-bottom: 40px; text-align: left; padding-bottom: 20px; border-bottom: 1px solid #CCC; color: #369; }
 
@@ -249,6 +249,23 @@ body a { outline: none; }
 .secondary .widget.widget_calendar #calendar_wrap table#wp-calendar tfoot td#prev { padding-left: 0.5em; }
 .secondary .widget.widget_calendar #calendar_wrap table#wp-calendar tfoot td#next { padding-right: 0.5em; text-align: right;  }
 
+.secondary .widget_calendar_upcoming ul { padding: 0; margin: 0; }
+
+.secondary .widget_calendar_upcoming h4 { padding-bottom: 10px; }
+.secondary .widget_calendar_upcoming > ul > li { list-style: none inside; }
+.secondary .widget_calendar_upcoming > ul > li > strong { padding-bottom: 5px; }
+.secondary .widget_calendar_upcoming > ul > li > ul { padding: 0 0 15px 0; }
+
+.secondary .widget_calendar_upcoming .calnk a { border: none; color: #666; }
+.secondary .widget_calendar_upcoming .calnk a > span { display: none; }
+.secondary .widget_calendar_upcoming .calnk a > span .event-title { text-align: left; background: #FFF; width: 230px; }
+.secondary .widget_calendar_upcoming .calnk a > span .event-content-break,
+.secondary .widget_calendar_upcoming .calnk a > span .event-title-break { display: none; }
+
+.secondary .widget_calendar_upcoming .calnk a:hover { color: #000; border-bottom: 1px solid #CCC; text-decoration: none; }
+.secondary .widget_calendar_upcoming .calnk a:hover > span { background: #FFF; border: 1px solid #CCC; color: #333;	display: block; line-height: 1.2em;	margin-top: 1px; padding: 15px;	position: absolute;	width: 250px; z-index: 100; text-decoration: none !important; }
+
+
 .secondary .widget.widget_rss li { margin-bottom: 0.25em; }
 .secondary .widget.widget_rss li .rss-date { display: block; }
 
@@ -284,9 +301,20 @@ body a { outline: none; }
 .widget.widget_recent_comments li.recentcomments a {  }
 .widget.widget_recent_comments li.recentcomments a.url {  }
 
+.widget.gsom_widget h4.widgettitle { padding-bottom: 10px; }
+
+.widget.gsom_widget { padding-bottom: 20px; }
+.widget.gsom_widget .gsom-optin-form {  }
+.widget.gsom_widget .gsom-optin-form .gsom-optin-div-label { width: 50px; overflow: hidden; float: left;  }
+.widget.gsom_widget .gsom-optin-form .gsom_sfi input { width: 130px; border: 1px solid #CCC; border-bottom: 2px solid #999; padding: 4px 5px; outline: none; float: left; }
+.widget.gsom_widget .gsom-optin-form .gsom-required-msg { display: block; padding: 3px 0; border-bottom: 2px solid #900; }
+
+.widget.gsom_widget .gsom-optin-radiogroup,
+.widget.gsom_widget .gsom-optin-radiogroup input { float: none; }
+
 #widgetspost .widget { margin-top: 1em; }
 
-#widgets-bottom { margin-top: 70px; padding-top: 1em; border-top: 1px solid #CCC; }
+#widgets-bottom { margin-top: 4em; padding-top: 1em; border-top: 1px solid #CCC; overflow: hidden; }
 #widgets-bottom .widget { width: 33%; float: left;  }
 #widgets-bottom .widget ul { padding: 0 0.5em; margin: 0; }
 
@@ -300,11 +328,20 @@ body a { outline: none; }
 .home .hfeed .mod .entry-meta { display: block; color: #999; font-size: 0.9em; }
 
 .home .hfeed .mod#courses,
+.home .mod#calendarmod,
 .home .hfeed .mod#projects { border: solid #CCC; border-width: 1px 0 0 0; padding: 2em 0 0 0; margin: 1em 0 0 0; } 
 .home .hfeed .mod#post { width: 100%; clear: both; float: none; padding: 2em 0 0 0; margin: 2em 0 0 0; border-top: 1px solid #CCC; }
 .home .hfeed .mod#post ul.cnt li { padding-bottom: 1.5em; }
 .home .hfeed .mod#post ul.cnt li .entry-header a { font-size: 1.4em; }
 .home .hfeed .mod#post ul.cnt li .entry-content { display: block; padding: 1em 0; }
+
+.home .mod#calendarmod { width: 100%; float: none; clear: both; }
+.home .mod#calendarmod .hentry .entry-content table th,
+.home .mod#calendarmod .hentry .entry-content table td { font-size: 0.9em; line-height: 0.5em; }
+.home .mod#calendarmod .hentry .entry-content table th .calnk a,
+.home .mod#calendarmod .hentry .entry-content table td .calnk a { line-height: 1.2em;}
+.home .mod#calendarmod .hentry .entry-content table td .calnk a span br { display: none; }
+.home .mod#calendarmod .hentry .entry-content table.calendar-table td > span { font-size: 12px; font-weight: bold; }
 
 /* --- Search Widget,incl. Livesearch --------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 input[type=text],
@@ -338,3 +375,58 @@ textarea{ color: #444; padding: 1px; margin: 0; }
 #searchsubmit	{ float:right;width:30%;}/* Static search button */
 
 .hidden { display: none; }
+
+body.showrollingarchives.custom-post-type-archive .navigation { display: block; }
+body.custom-post-type-archive #rollingarchives,
+body.custom-post-type-archive #rollingarchivesbg { display: none; }
+
+/* --- calendar --------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+.page.slug-calendar #widgets-sidebar-1 { display: none; }
+.page.slug-calendar #widgets-bottom { clear: both; }
+
+.page.slug-calendar .wrapper { overflow: hidden; }
+.page.slug-calendar .primary { width: 100%;  }
+.page.slug-calendar .primary .hfeed { padding: 0;  }
+.page.slug-calendar .primary .hfeed .kjo-link p { display: none !important; }
+
+.entry-content table.calendar-table { width: 100%;  table-layout: fixed; border-collapse: collapse; }
+.entry-content table.calendar-table td { padding: 3px 5px; }
+
+.entry-content table.calendar-table td.calendar-heading { padding: 0; border: none; }
+.entry-content table.calendar-table td.calendar-heading table { padding: 0; margin: 0; border: none; }
+.entry-content table.calendar-table td.calendar-heading table td { height: auto; padding: 10px; font-size: 18px; border: none; }
+.entry-content table.calendar-table td.calendar-heading table td.calendar-prev {  }
+.entry-content table.calendar-table td.calendar-heading table td.calendar-month { text-align: center; border-left: none; }
+.entry-content table.calendar-table td.calendar-heading table td.calendar-next { text-align: right; }
+
+.entry-content table.calendar-table td.normal-day-heading,
+.entry-content table.calendar-table td.weekend-heading { font-weight: bold; text-align: center; padding: 5px; height: auto;  }
+.entry-content table.calendar-table td.weekend-heading {  }
+.entry-content table.calendar-table td.day-without-date { background: #F5F5F5; }
+.entry-content table.calendar-table td.day-with-date { vertical-align: bottom; }
+.entry-content table.calendar-table td.day-with-date.no-events {  }
+.entry-content table.calendar-table td.day-with-date { }
+
+.entry-content table.calendar-table td { height: 60px; vertical-align: top !important; }
+.entry-content table.calendar-table td span { display: block; }
+.entry-content table.calendar-table td > span { display: block; font-size: 21px; padding: 5px 0 10px 0; clear: both; }
+
+.entry-content table.calendar-table td span.event { font-size: 1px; color: #FFF; font-weight: bold; color: #090; cursor: pointer; padding: 0; }
+.entry-content table.calendar-table td span.event br { display: block; height: 1px; line-height: 1px; overflow: hidden; }
+.entry-content table.calendar-table td span.event span.calnk { display: inline; font-size: 12px; color: #000; }
+.entry-content table.calendar-table td span.event span.calnk a { display: inline; position: relative; text-decoration: none !important; color: #369; padding: 0 0 0 3px; }
+.entry-content table.calendar-table td span.event span.calnk a > span { display: none; width: 200px; background: #FFF; position: absolute; bottom: 100%; right: 0; padding: 10px; border: 1px solid #CCC; text-decoration: none !important; }
+.entry-content table.calendar-table td span.event span.calnk a > span .event-title { display: none; }
+.entry-content table.calendar-table td span.event span.calnk a > span .event-title-break { display: none; }
+.entry-content table.calendar-table td span.event span.calnk a > span .event-content-break { display: block; height: 5px;  }
+.entry-content table.calendar-table td span.event span.calnk a > span strong { font-weight: normal; text-decoration: none; }
+
+.entry-content table.calendar-table tr td:first-child span.event span.calnk a > span { bottom: 100%; right: -100%; }
+.entry-content table.calendar-table td span.event span.calnk a:hover > span { display: block; text-decoration: none !important; color: #000; }
+
+.entry-content table.calendar-table td[colspan=7] { padding: 20px; }
+.entry-content table.calendar-table td table.cat-key { border: none; margin: 0; display: none; }
+.entry-content table.calendar-table td table.cat-key td { padding: 0; border: none; height: auto;  }
+.entry-content table.calendar-table td table.cat-key strong { display: none; }
+
+
