@@ -25,7 +25,7 @@ get_header(); ?>
 
 	<div class="primary">
 
-		<a name="startcontent"></a>
+		<h1>Курсове</h1>
 
 		<?php /* K2 Hook */ do_action('template_primary_begin'); ?>
 
