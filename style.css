@@ -52,6 +52,8 @@ h6 { font-size: 1.0em; line-height: 1.2em; }
 .wf-active #header .headermenu li a,
 .wf-active #header #site-title { font-family: "PT Sans", "Trebuchet MS", "Verdana", sans-serif; }
 
+.wf-active #header .headermenu li a { font-size: 1.25em; }
+
 /* --- Columns ------------------------------------------------------------------------------------ */
 body { background: #FFF; }
 body a { outline: none; }
@@ -85,7 +87,7 @@ body a { outline: none; }
 #header .headermenu { position: absolute; top: 0; right: 0; }
 #header .headermenu ul {  }
 #header .headermenu li { float: left; }
-#header .headermenu li a { display: block; padding: 120px 50px 10px 15px; color: #000; border-left: 1px solid #DDD; background: #FFF; font-size: 16px; }
+#header .headermenu li a { display: block; padding: 7em 3em 0.2em 1em; color: #000; border-left: 1px solid #DDD; background: #FFF;  }
 #header .headermenu li a:hover { border-color: #666; background: none; text-decoration: none; }
 #header .headermenu li.current-menu-item a,
 #header .headermenu li.current_page_item a { border-color: #111; background: #222; color: #FFF; }
