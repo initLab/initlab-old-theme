@@ -16,11 +16,5 @@
 	}
 	add_filter( 'wp_head', 'remove_wp_widget_recent_comments_style');
 
-	function import_scripts()
-	{
-		echo '<script src="/wp-content/themes/initlab/scripts/common.js"></script>';
-	}
-	add_action('wp_head', 'import_scripts');
-	
-	
-?>
+
+	wp_enqueue_script( 'initlab-common', get_bloginfo( 'stylesheet_directory' ) . '/scripts/common.js', array('jquery') );
