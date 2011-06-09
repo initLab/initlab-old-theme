@@ -26,7 +26,9 @@ hr { display: none; }
 /* --- First set up text for default web safe fonts -------------------------------------------------- */
 
 body { font: 100%/1.4em "Lucida Grande", Helvetica, Verdana, sans-serif; }
-#page, #footer { font-size: 0.75em; line-height: 1.4em; }
+
+#page { font-size: 0.75em; line-height: 1.4em; }
+
 .widget.widget_calendar #calendar_wrap table#wp-calendar caption,
 .navigation a,
 h1, h2, h3, h4, h5, h6 { font-family: "Trebuchet MS", sans-serif; }
@@ -40,7 +42,7 @@ h6 { font-size: 1.0em; line-height: 1.2em; }
 
 /* --- Now set up text formatting for web fonts loaded from Google -------------------------------- */
 .wf-active body { font: 100%/1.4em "PT Sans", "Lucida Grande", Helvetica, Verdana, sans-serif; }
-.wf-active #page, #footer { font-size: 0.85em; line-height: 1.4em; }
+.wf-active #page { font-size: 0.85em; line-height: 1.4em; }
 
 .wf-active h1,
 .wf-active h2,
@@ -59,8 +61,7 @@ h6 { font-size: 1.0em; line-height: 1.2em; }
 body { background: #FFF; }
 body a { outline: none; }
 
-#page,
-#footer { width: 95%; margin: 0 auto; clear: both; }
+#page { width: 95%; margin: 0 auto; clear: both; }
 
 .primary,
 .secondary { float: left; }
@@ -75,7 +76,7 @@ body a { outline: none; }
 #header #site-title a:hover { text-decoration: none; }
 #header #site-description { display: none; }
 
-#footer { border-top: 1px solid #CCC; padding-top: 20px; clear: both; margin-top: 20px; padding-bottom: 30px; }
+#footer { border-top: 1px solid #CCC; padding-top: 20px; clear: both; margin-top: 20px; padding-bottom: 30px; color: #666; }
 
 #page.no-sidebar .primary { width: auto; float: none; clear: both; }
 #page.no-sidebar .hfeed { padding-right: 0; }
