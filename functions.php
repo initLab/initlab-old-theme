@@ -73,7 +73,7 @@
 		?>
 
 		<div id="<?php echo $type; ?>" class="mod">
-			<div class="hdr"><h2><?php echo $title; ?></h2></div>
+		<div class="hdr"><h2><?php echo $title; ?></h2><a href="/<?php echo $type; ?>/feed" target="_blank" class="rss">RSS</a></div>
 			<ul class="cnt">
 			<?php while ( $content->have_posts() ) : $content->the_post(); ?>
 				<li id="entry-<?php the_ID(); ?>">
