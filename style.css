@@ -49,7 +49,9 @@ h6 { font-size: 1.0em; line-height: 1.2em; }
 .wf-active h3,
 .wf-active h4,
 .wf-active h5,
-.wf-active h6 
+.wf-active h6,
+.home .hfeed .mod ul.cnt li .entry-header a { font-family: "PT Sans Caption", "Trebuchet MS", "Verdana", sans-serif; }
+
 .wf-active .widget.widget_calendar #calendar_wrap table#wp-calendar caption,
 .wf-active .navigation a,
 .wf-active #header .headermenu li a,
