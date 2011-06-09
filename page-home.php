@@ -34,7 +34,7 @@
 			<div class="cleaner"></div>
 			<p><a href="/archive">По-Стари &raquo;</a></p>
 
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+			<?php if (have_posts() && false) : while (have_posts()) : the_post(); ?>
 			<div class="mod" id="calendarmod">
 				<div class="hdr"><h2>Календар</h2></div>
 				<div class="hentry">
