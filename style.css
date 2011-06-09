@@ -7,6 +7,7 @@ Author URI: http://dankov.name
 Template: k2
 */
 
+@import url(styles/css3.css);
 
 /* --- Common ------------------------------ */
 * { margin: 0; padding: 0; }
@@ -179,12 +180,16 @@ body a { outline: none; }
 #tag-cloud { padding-bottom: 1.5em; }
 
 /* --- Navigation ------------------------------------------------------------------------------------ */
-.navigation a { font-size: 2.2em; color: #000; }
+.navigation a { font-size: 2.2em; line-height: 1.3em; color: #000; }
 .navigation .nav-previous,
-.navigation .left { float: left; width: 45%; text-align: left; }
+.navigation .left { float: left; width: 45%; text-align: right; }
 .navigation .nav-next,
-.navigation .right { float: right; width: 45%; text-align: right; }
+.navigation .right { float: right; width: 46%; text-align: left;  }
 
+.navigation .nav-previous,
+.navigation .left { width: 50%; border-right: 1px solid #CCC; }
+.navigation .nav-previous a,
+.navigation .left a { display: block; padding-right: 1em; }
 #nav-below.navigartion { margin-top: 1em; border-top: 1px solid #CCC; }
 
 /* --- Comments ------------------------------------------------------------------------------------ */

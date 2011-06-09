@@ -8,7 +8,7 @@
 	add_filter( 'wp_head', 'remove_wp_widget_recent_comments_style');
 
 	wp_enqueue_script( 'initlab-common', get_bloginfo( 'stylesheet_directory' ) . '/scripts/common.js', array('jquery') );
-	wp_enqueue_style( 'initlab-less', get_bloginfo( 'stylesheet_directory' ) . '/lessframework.css' );
+	wp_enqueue_style( 'initlab-less', get_bloginfo( 'stylesheet_directory' ) . '/styles/lessframework.css' );
 
 	if ( function_exists('register_sidebar') ){
 
