@@ -35,7 +35,7 @@
 		<script type="text/javascript">
 			WebFontConfig = {
 				google: {
-					families: [ 'PT Sans', 'PT Serif' ]
+					families: [ 'PT Sans', 'PT Serif', 'Open Sans' ]
 				}
 			}
 
@@ -73,7 +73,7 @@
 		?>
 
 		<div id="<?php echo $type; ?>" class="mod">
-		<div class="hdr"><h2><?php echo $title; ?></h2><a href="/<?php echo $type; ?>/feed" target="_blank" class="rss">RSS</a></div>
+		<div class="hdr"><h2><?php echo $title; ?></h2><a href="<?php if($type != 'post'){ echo '/'.$type; } ?>/feed" target="_blank" class="rss">RSS</a></div>
 			<ul class="cnt">
 			<?php while ( $content->have_posts() ) : $content->the_post(); ?>
 				<li id="entry-<?php the_ID(); ?>">
@@ -97,6 +97,7 @@
 				</li>
 			<?php endwhile; /* End The Loop */ ?>
 			</ul>
+			<p><a class="more" href="<?php if($type!='post'){ echo '/'.$type; } ?>">Виж всички &raquo;</p>
 		</div>
 
 	<?php

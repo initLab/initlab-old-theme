@@ -32,7 +32,6 @@
 
 			<?php selectContent('post', '5', 'Последно от Блогa'); ?>
 			<div class="cleaner"></div>
-			<p><a href="/archive">По-Стари &raquo;</a></p>
 
 			<?php if (have_posts() && false) : while (have_posts()) : the_post(); ?>
 			<div class="mod" id="calendarmod">
