@@ -23,6 +23,7 @@
 
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 	<meta name="template" content="K2 <?php k2info('version'); ?>" />
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 	<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
