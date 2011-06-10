@@ -56,7 +56,7 @@ px      68    160    252    */
 	/* #page { border-color: #FF0; } */
 	
 	#header .headermenu li a { padding: 2em 1em 0.2em 0.5em;  }
-	.wf-active #header .headermenu li a { font-size: 1.2em; }
+	.wf-active #header .headermenu li a { font-size: 1em; }
 	
 	#header #site-title { width: 100%; text-align: center; }
 
