@@ -57,16 +57,45 @@ Template Name: Archives (Do Not Use Manually)
 
 				<div class="entry-content">
 
-					<h3><?php _e('Browse by Month', 'k2'); ?></h3>
-					<ul class="archive-list">
-						<?php wp_get_archives('show_post_count=1'); ?>
-					</ul>
+					<h2>Архив Постове</h2>
+					<br />
 
+					<div class="col w3">
+						<h3>Дата</h3>
+						<ul class="archive-list">
+							<?php wp_get_archives( array('type'=>'postbypost', 'show_post_count' => true, 'limit'=> 15 ) ); ?>
+						</ul>
+					</div>
+
+					<div class="col w3">
+						<h3>Години</h3>
+						<ul class="archive-list">
+							<?php wp_get_archives( array('type'=>'yearly', 'show_post_count' => true) ); ?>
+						</ul>
+					</div>
+
+					<div class="col w3">
+						<h3>Месеци</h3>
+						<ul class="archive-list">
+							<?php wp_get_archives( array('type'=>'monthly', 'show_post_count' => true) ); ?>
+						</ul>
+					</div>
+
+					<div class="cleaner"></div>
+
+					<div class="col w3">
+						<h3>Автори</h3>
+						<ul class="archive-list">
+							<?php wp_list_authors( array( 'orderby'=>'name', 'order'=>'ASC' ) ); ?>
+						</ul>
+					</div>
+
+					<?php /* ?>
 					<h3><?php _e('Browse by Category', 'k2'); ?></h3>
 					<ul class="archive-list">
 						<?php wp_list_cats('hierarchical=1&optioncount=1'); ?>
 					</ul>
-
+					<?php */ ?>
 
 				</div><!-- .entry-content -->
 
