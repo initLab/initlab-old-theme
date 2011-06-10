@@ -333,6 +333,7 @@ body a { outline: none; }
 #widgets-bottom { margin-top: 4em; padding-top: 1em; border-top: 1px solid #CCC; overflow: hidden; clear: both; }
 #widgets-bottom .widget { width: 30%; margin: 0 3% 0 0; float: left;  }
 #widgets-bottom .widget ul { padding: 0 0.5em; margin: 0; }
+#widgets-bottom .widget ul ul { padding-left: 1.5em; }
 
 /* --- Homepage styles -------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 .home #welcome { padding-bottom: 2em; margin-bottom: 2em; border-bottom: 1px solid #CCC; }
