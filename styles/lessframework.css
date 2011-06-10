@@ -23,6 +23,7 @@ body { -webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjustin
 
 #page { max-width: 1100px; }
 
+#page { border-top: 5px solid #444; }
 /*		Tablet Layout: 768px.
 		Gutters: 24px.
 		Outer margins: 28px.
@@ -33,6 +34,8 @@ px      68    160    252    344    436    528    620    712    */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	
+	/* #page { border-color: #888; } */
+
 	.wf-active #page, #footer { font-size: 0.85em; line-height: 1.4em; }
 
 	#header .headermenu li a { padding: 7em 1.9em 0.1em 0.7em;  }
@@ -49,6 +52,8 @@ cols    1     2      3
 px      68    160    252    */
 
 @media only screen and (max-width: 767px) {
+
+	/* #page { border-color: #FF0; } */
 	
 	#header .headermenu li a { padding: 2em 1em 0.2em 0.5em;  }
 	.wf-active #header .headermenu li a { font-size: 1.2em; }
@@ -61,7 +66,11 @@ px      68    160    252    */
 	.hfeed { padding-right: 0; }
 	#widgets-sidebar-1 .widget{ margin-top: 1em; padding-top: 1em;  border-top: 1px solid #CCC; }
 
+	#widgets-bottom { padding-top: 0; margin-top: 0; border-top: none; }
+
 	#widgets-bottom .widget { width: auto; float: none; clear: both;  margin-top: 1em; padding-top: 1em;  border-top: 1px solid #CCC; }
+	#widgets-bottom .widget#flickrrss { clear: both; width: 100%; margin-top: 1em; padding-top: 1em;  border-top: 1px solid #CCC;  }
+
 }
 
 
@@ -75,14 +84,21 @@ px      68    160    252    344    436    */
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 
+	/* #page { border-color: #F00; } */
+
+	#header #site-title { width: auto; text-align: left; }
 	#header .headermenu li a { padding: 2em 1em 0.2em 0.5em;  }
 	.wf-active #header .headermenu li a { font-size: 1.2em; }
 	
-	.home .hfeed .mod { float: none; clear: both; width: 100%; }
-
-	#widgets-bottom .widget { width: 50%; }
-	#widgets-bottom .widget#flickrrss { clear: both; width: 100%; margin-top: 1em; padding-top: 1em;  border-top: 1px solid #CCC;  }
+	.primary { width: 60%; float: left; clear: none; }
+	.hfeed { padding-right: 1.5em; }
+	#widgets-sidebar-1, .secondary { width: 40%; float: left; clear: none; }
+	#widgets-sidebar-1 .widget { margin-top: none; padding-top: none;  border-top: none; }
 	
+	#widgets-bottom .widget#flickrrss,
+	#widgets-bottom .widget { width: 47%; float: left; border-top: none; clear: none; }
+	#widgets-bottom .widget#flickrrss { margin-right: 0; width: 49%; }
+	#widgets-bottom .widget.widget_nav_menu { clear: both; }
 }
 
 
