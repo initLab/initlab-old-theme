@@ -97,7 +97,7 @@
 				</li>
 			<?php endwhile; /* End The Loop */ ?>
 			</ul>
-			<p><a class="more" href="<?php if($type!='post'){ echo '/'.$type; } ?>">Виж всички &raquo;</p>
+			<p><a class="more" href="<?php if($type!='post'){ echo '/'.$type; } ?>">Виж всички &raquo;</a></p>
 		</div>
 
 	<?php

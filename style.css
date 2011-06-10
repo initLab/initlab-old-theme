@@ -193,7 +193,10 @@ body a { outline: none; }
 .navigation .left { width: 50%; border-right: 1px solid #CCC; }
 .navigation .nav-previous a,
 .navigation .left a { display: block; padding-right: 1em; }
-#nav-below.navigartion { margin-top: 1em; border-top: 1px solid #CCC; }
+
+#nav-below.navigation { overflow: hidden; }
+
+.custom-post-type-archive #nav-below.navigation { border-top: 1px solid #CCC; padding: 3em 0 0 0; margin: 2em 0 0 0; }
 
 /* --- Comments ------------------------------------------------------------------------------------ */
 .comments { margin-top: 70px; overflow: hidden;  }
@@ -334,8 +337,8 @@ body a { outline: none; }
 /* --- Homepage styles -------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 .home #welcome { padding-bottom: 2em; margin-bottom: 2em; border-bottom: 1px solid #CCC; }
 .home .hfeed .mod { width: 50%; float: left; padding: 0 0 1em 0; }
-.home .hfeed .mod .hdr { overflow: hidden; }
-.home .hfeed .mod .hdr .rss { display: block; width: 32px; height: 32px; overflow: hidden; text-indent: -1920px; float: left; margin-left: 1em; opacity: 0.2; background: url(images/rss.png) left top no-repeat; }
+.home .hfeed .mod .hdr { overflow: hidden; padding-top: 5px; }
+.home .hfeed .mod .hdr .rss { display: block; width: 32px; height: 32px; overflow: hidden; text-indent: -1920px; float: left; margin: -0.4em 0 0 1em; opacity: 0.2; background: url(images/rss.png) left top no-repeat; }
 .home .hfeed .mod .hdr .rss:hover { opacity: 1; }
 .home .hfeed .mod .hdr h2 { padding-bottom: 0.5em; float: left; }
 .home .hfeed .mod ul.cnt { padding: 0 2.5em 0 0; }
@@ -396,6 +399,10 @@ body.showrollingarchives.custom-post-type-archive .navigation { display: block; 
 body.custom-post-type-archive #rollingarchives,
 body.custom-post-type-archive #rollingarchivesbg { display: none; }
 
+/* --- Grid --------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+.col { float: left; overflow: hidden; }
+.col.w2 { width: 50%; }
+.col.w3 { width: 33%; }
 /* --- calendar --------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 .page.slug-calendar .primary .hfeed .kjo-link p { display: none !important; }
 

@@ -22,7 +22,7 @@ get_header(); ?>
 			<?php include(TEMPLATEPATH . '/app/display/theloop.php'); ?>
 		</div>
 
-		<?php /* Bottom Navigation  k2_navigation('nav-below'); */ ?>
+		<?php /* Bottom Navigation */ k2_navigation('nav-below'); ?>
 
 		<?php /* K2 Hook */ do_action('template_primary_end'); ?>
 
