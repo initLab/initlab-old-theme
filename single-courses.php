@@ -60,6 +60,7 @@ get_header(); ?>
 					{
 						$page_type = 'newspage';
 						$program = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 1, 'post_parent' => $ancestors[count($ancestors)-1], 'name' => "program" ) );
+						$news = new WP_Query( array( 'post_type' => 'courses', 'showposts' => 10, 'post_parent' => $post->post_parent ) );
 					}
 				}
 				else
