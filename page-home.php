@@ -18,9 +18,11 @@
 
 		<div class="content hfeed">
 
+			<?php if ( is_active_sidebar('widgets-top') ) : ?>
 			<div id="welcome" class="widgets">
 				<?php dynamic_sidebar('homepage'); ?>
 			</div>
+			<?php endif; ?>
 
 			<?php selectContent('news', 	'5', 'Новини'); ?>
 			<?php selectContent('events', 	'5', 'Събития'); ?>
