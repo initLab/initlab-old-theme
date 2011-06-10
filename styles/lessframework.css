@@ -38,7 +38,7 @@ px      68    160    252    344    436    528    620    712    */
 
 	.wf-active #page, #footer { font-size: 0.85em; line-height: 1.4em; }
 
-	#header .headermenu li a { padding: 7em 1.9em 0.1em 0.7em;  }
+	#header .headermenu ul li a { padding: 1.5em 1em 0.4em 0.5em;  }
 	
 }
 
@@ -54,9 +54,17 @@ px      68    160    252    */
 @media only screen and (max-width: 767px) {
 
 	/* #page { border-color: #FF0; } */
+
+	.wf-active #page { font-size: 0.65em; line-height: 1.4em; }
+	.wf-active #header #site-title { font-size: 3em; padding-top: 1.5em; }
+	.wf-active #header .headermenu li a { font-size: 1.1em; }
 	
-	#header .headermenu li a { padding: 2em 1em 0.2em 0.5em;  }
-	.wf-active #header .headermenu li a { font-size: 1em; }
+	#header { margin: 0; border-bottom: 1px solid #CCC; padding-bottom: 0.5em; margin-bottom: 0.5em; }
+	#header .headermenu { width: 100%; }
+	#header .headermenu ul { overflow:hidden; }
+	#header .headermenu ul li { width: 20%; }
+	#header .headermenu ul li:last-child a { border-right: 1px solid #CCC; }
+	#header .headermenu ul li a { padding: 1.5em 1em 0.4em 0.5em;  }
 	
 	#header #site-title { width: 100%; text-align: center; }
 
@@ -86,9 +94,10 @@ px      68    160    252    344    436    */
 
 	/* #page { border-color: #F00; } */
 
-	#header #site-title { width: auto; text-align: left; }
-	#header .headermenu li a { padding: 2em 1em 0.2em 0.5em;  }
-	.wf-active #header .headermenu li a { font-size: 1.2em; }
+	.wf-active #page { font-size: 0.75em; line-height: 1.4em; }
+	.wf-active #header .headermenu li a { font-size: 1.1em; }
+
+	#header .headermenu li a { padding: 2em 1em 0.3em 0.5em;  }
 	
 	.primary { width: 60%; float: left; clear: none; }
 	.hfeed { padding-right: 1.5em; }

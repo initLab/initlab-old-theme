@@ -27,7 +27,8 @@ hr { display: none; }
 
 body { font: 100%/1.4em "Lucida Grande", Helvetica, Verdana, sans-serif; }
 
-#page { font-size: 0.75em; line-height: 1.4em; }
+#page { font-size: 0.75em; line-height: 1.4em; overflow: hidden;  }
+#header #site-title { font-size: 5em; }
 
 .widget.widget_calendar #calendar_wrap table#wp-calendar caption,
 .navigation a,
@@ -43,6 +44,7 @@ h6 { font-size: 1.0em; line-height: 1.2em; }
 /* --- Now set up text formatting for web fonts loaded from Google -------------------------------- */
 .wf-active body { font: 100%/1.4em "PT Sans", "Lucida Grande", Helvetica, Verdana, sans-serif; }
 .wf-active #page { font-size: 0.85em; line-height: 1.4em; }
+.wf-active #header #site-title { font-size: 6em; }
 
 .wf-active h1,
 .wf-active h2,
@@ -71,9 +73,9 @@ body a { outline: none; }
 .primary { width: 70%; position: relative; }
 #widgets-sidebar-1 { width: 30%; }
 
-#header { position: relative; height: 170px; overflow: hidden; margin-bottom: 50px; }
+#header { position: relative; overflow: hidden; margin-bottom: 2em; }
 
-#header #site-title { font-size: 600%; font-weight: normal; color: #111; margin: 0 0 0 -5px; position: absolute; left: 0; bottom: 0; }
+#header #site-title { font-weight: normal; color: #111; margin: 0; padding-top: 0.75em; }
 #header #site-title a { display: block; padding: 0; color: inherit !important; line-height: normal; }
 #header #site-title a:hover { text-decoration: none; }
 #header #site-description { display: none; }
@@ -91,7 +93,7 @@ body a { outline: none; }
 #header .headermenu { position: absolute; top: 0; right: 0; }
 #header .headermenu ul {  }
 #header .headermenu li { float: left; }
-#header .headermenu li a { display: block; padding: 7em 3em 0.2em 1em; color: #000; border-left: 1px solid #DDD; background: #FFF;  }
+#header .headermenu li a { display: block; padding: 7em 3em 0.5em 0.8em; color: #000; border-left: 1px solid #DDD; background: #FFF;  }
 #header .headermenu li a:hover { border-color: #666; background: none; text-decoration: none; }
 #header .headermenu li.current-menu-item a,
 #header .headermenu li.current_page_item a { border-color: #111; background: #222; color: #FFF; }
