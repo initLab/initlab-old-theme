@@ -1,5 +1,4 @@
 <?php
-
 	add_filter('gallery_style', create_function('$a', 'return preg_replace("%<style type=\'text/css\'>(.*?)</style>%s", "", $a);'));
 
 	function remove_wp_widget_recent_comments_style() {
@@ -105,4 +104,3 @@
 	}
 
 ?>
-
