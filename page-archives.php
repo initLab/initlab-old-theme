@@ -12,12 +12,19 @@ Template Name: Archives (Do Not Use Manually)
 */
 ?>
 
-<?php /* Counts the posts, comments and categories on your blog */
-	$numpostsarray	= wp_count_posts('post');
-	$numposts	= $numpostsarray->publish;
-	$numcommsarray	= wp_count_comments();
-	$numcomms	= $numcommsarray->approved;
-	$numcats 	= count(get_all_category_ids());
+<?php /* Statistics for your blog */
+	$numpostsarray = wp_count_posts('post');
+	$numposts = $numpostsarray->publish;
+
+	$numeventsarray	= wp_count_posts('events');
+	$numevents = $numeventsarray->publish;
+
+	$numprojectsarray = wp_count_posts('projects');
+	$numprojects = $numprojectsarray->publish;
+
+	$numcommsarray = wp_count_comments();
+	$numcomms = $numcommsarray->approved;
+	$numcats = count(get_all_category_ids());
 ?>
 
 <?php get_header(); ?>
@@ -50,26 +57,45 @@ Template Name: Archives (Do Not Use Manually)
 
 				<div class="entry-content">
 
-					<p class="archivetext"><?php /* translators: 1: blog name, 2: post count, 3: comment count, 4: category count */ printf( __('This is the frontpage of the %1$s archives. Currently the archives are spanning %2$s posts and %3$s comments, contained within the meager confines of %4$s categories. Through here, you will be able to move down into the archives by way of time or category. If you are looking for something specific, perhaps you should try the search on the sidebar.', 'k2'), get_bloginfo('name'), $numposts, $numcomms, $numcats ); ?></p>
+					<h2>Архив Постове</h2>
+					<br />
 
-					<h3><?php _e('Tag Cloud', 'k2'); ?></h3>
-					<div id="tag-cloud">
-					<?php wp_tag_cloud('number=0'); ?>
+					<div class="col w3">
+						<h3>Дата</h3>
+						<ul class="archive-list">
+							<?php wp_get_archives( array('type'=>'postbypost', 'show_post_count' => true, 'limit'=> 15 ) ); ?>
+						</ul>
 					</div>
 
-					<h3><?php _e('Browse by Month', 'k2'); ?></h3>
-					<ul class="archive-list">
-						<?php wp_get_archives('show_post_count=1'); ?>
-					</ul>
+					<div class="col w3">
+						<h3>Години</h3>
+						<ul class="archive-list">
+							<?php wp_get_archives( array('type'=>'yearly', 'show_post_count' => true) ); ?>
+						</ul>
+					</div>
 
-					<br class="clear" />
+					<div class="col w3">
+						<h3>Месеци</h3>
+						<ul class="archive-list">
+							<?php wp_get_archives( array('type'=>'monthly', 'show_post_count' => true) ); ?>
+						</ul>
+					</div>
 
+					<div class="cleaner"></div>
+
+					<div class="col w3">
+						<h3>Автори</h3>
+						<ul class="archive-list">
+							<?php wp_list_authors( array( 'orderby'=>'name', 'order'=>'ASC' ) ); ?>
+						</ul>
+					</div>
+
+					<?php /* ?>
 					<h3><?php _e('Browse by Category', 'k2'); ?></h3>
 					<ul class="archive-list">
 						<?php wp_list_cats('hierarchical=1&optioncount=1'); ?>
 					</ul>
-
-					<br class="clear" />
+					<?php */ ?>
 
 				</div><!-- .entry-content -->
 

@@ -7,57 +7,9 @@ Author URI: http://dankov.name
 Template: k2
 */
 
-@import url(k2ajaxstuff.css);
+@import url(styles/css3.css);
 
-/* --- Typography ------------------------------------------------------------------------------------ */
-@font-face {
-	font-family: 'PTSansCaptionRegular';
-	src: url('fonts/PTSansCaption.eot');
-	src: local('fonts/PT Sans Caption Regular'), local('fonts/PTSans-Caption'), url('fonts/PTSansCaption.woff') format('woff'), url('fonts/PTSansCaption.ttf') format('truetype'), url('fonts/PTSansCaption.svg#PTSans-Caption') format('svg');
-}
-
-@font-face {
-	font-family: 'PTSansNarrowRegular';
-	src: url('fonts/PTSansNarrow.eot');
-	src: local('fonts/PT Sans Narrow Regular'), local('fonts/PTSans-Narrow'), url('fonts/PTSansNarrow.woff') format('woff'), url('fonts/PTSansNarrow.ttf') format('truetype'), url('fonts/PTSansNarrow.svg#PTSans-Narrow') format('svg');
-}
-
-@font-face {
-	font-family: 'PTSansRegular';
-	src: url('fonts/PTSansRegular.eot');
-	src: local('fonts/PT Sans Regular'), local('fonts/PTSans-Regular'), url('fonts/PTSansRegular.woff') format('woff'), url('fonts/PTSansRegular.ttf') format('truetype'), url('fonts/PTSansRegular.svg#PTSans-Regular') format('svg');
-}
-
-@font-face {
-	font-family: 'PTSansBoldItalic';
-	src: url('fonts/PTSansBoldItalic.eot');
-	src: local('fonts/PT Sans Bold Italic'), local('fonts/PTSans-BoldItalic'), url('fonts/PTSansBoldItalic.woff') format('woff'), url('fonts/PTSansBoldItalic.ttf') format('truetype'), url('fonts/PTSansBoldItalic.svg#PTSans-BoldItalic') format('svg');
-}
-
-@font-face {
-	font-family: 'PTSansCaptionBold';
-	src: url('fonts/PTSansCaptionBold.eot');
-	src: local('fonts/PT Sans Caption Bold'), local('fonts/PTSans-CaptionBold'), url('fonts/PTSansCaptionBold.woff') format('woff'), url('fonts/PTSansCaptionBold.ttf') format('truetype'), url('fonts/PTSansCaptionBold.svg#PTSans-CaptionBold') format('svg');
-}
-
-@font-face {
-	font-family: 'PTSansNarrowBold';
-	src: url('fonts/PTSansNarrowBold.eot');
-	src: local('fonts/PT Sans Narrow Bold'), local('fonts/PTSans-NarrowBold'), url('fonts/PTSansNarrowBold.woff') format('woff'), url('fonts/PTSansNarrowBold.ttf') format('truetype'), url('fonts/PTSansNarrowBold.svg#PTSans-NarrowBold') format('svg');
-}
-
-@font-face {
-	font-family: 'PTSansItalic';
-	src: url('fonts/PTSansItalic.eot');
-	src: local('fonts/PT Sans Italic'), local('fonts/PTSans-Italic'), url('fonts/PTSansItalic.woff') format('woff'), url('fonts/PTSansItalic.ttf') format('truetype'), url('fonts/PTSansItalic.svg#PTSans-Italic') format('svg');
-}
-
-@font-face {
-	font-family: 'PTSansBold';
-	src: url('fonts/PTSansBold.eot');
-	src: local('fonts/PT Sans Bold'), local('fonts/PTSans-Bold'), url('fonts/PTSansBold.woff') format('woff'), url('fonts/PTSansBold.ttf') format('truetype'), url('fonts/PTSansBold.svg#PTSans-Bold') format('svg');
-}
-
+/* --- Common ------------------------------ */
 * { margin: 0; padding: 0; }
 
 a { color: #369; text-decoration: none; }
@@ -65,39 +17,53 @@ a:hover { text-decoration: underline; }
 a img { border: none; }
 li { display: block; list-style: none outside;  }
 
-body { font: 12px/18px "Lucida Grande", Helvetica, Verdana, sans-serif; }
 hr { display: none; }
 
 .clear,
 .cleaner { display: block; height: 1px; overflow: hidden; clear: both; }
 
-.blog-title,
-table caption,
-#header .description,
-h1, h2, h3, h4 { font-family: "Minion Pro", "Arno Pro", Georgia, Verdana, sans-serif; }
+/* --- Typography ------------------------------------------------------------------------------------ */
+/* --- First set up text for default web safe fonts -------------------------------------------------- */
 
-.comments h4,
-.widget h4,
+body { font: 100%/1.4em "Lucida Grande", Helvetica, Verdana, sans-serif; }
+
+#page { font-size: 0.75em; line-height: 1.4em; }
+
 .widget.widget_calendar #calendar_wrap table#wp-calendar caption,
 .navigation a,
-.hfeed .page-head h1,
-.hfeed .panel .hdr h2,
-.hentry h1,
-.hentry h2,
-.hentry h3,
-.hentry h4,
-.hentry h5,
-.hentry h6 { font-family: "PTSansNarrowBold", sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-family: "Trebuchet MS", sans-serif; }
 
-#header .headermenu li a,
-#header #site-title { font-family: "PTSansRegular", sans-serif; }
+h1 { font-size: 3.1em; line-height: 1.2em; margin-bottom: 0.5em; }
+h2 { font-size: 2.0em; line-height: 1.2em; margin-bottom: 0.2em; }
+h3 { font-size: 1.8em; line-height: 1.2em; margin-bottom: 0.2em; }
+h4 { font-size: 1.6em; line-height: 1.2em; margin-bottom: 0.1em; }
+h5 { font-size: 1.4em; line-height: 1.2em; }
+h6 { font-size: 1.0em; line-height: 1.2em; }
+
+/* --- Now set up text formatting for web fonts loaded from Google -------------------------------- */
+.wf-active body { font: 100%/1.4em "PT Sans", "Lucida Grande", Helvetica, Verdana, sans-serif; }
+.wf-active #page { font-size: 0.85em; line-height: 1.4em; }
+
+.wf-active h1,
+.wf-active h2,
+.wf-active h3,
+.wf-active h4,
+.wf-active h5,
+.wf-active h6,
+.home .hfeed .mod ul.cnt li .entry-header a { font-family: "PT Sans Caption", "Trebuchet MS", "Verdana", sans-serif; }
+
+.wf-active .widget.widget_calendar #calendar_wrap table#wp-calendar caption,
+.wf-active .navigation a,
+.wf-active #header .headermenu li a,
+.wf-active #header #site-title { font-family: "PT Sans", "Trebuchet MS", "Verdana", sans-serif; }
+
+.wf-active #header .headermenu li a { font-size: 1.25em; }
 
 /* --- Columns ------------------------------------------------------------------------------------ */
 body { background: #FFF; }
 body a { outline: none; }
 
-#page,
-#footer { width: auto; min-width: 960px; max-width: 1100px; margin: 0 0 0 80px; clear: both; }
+#page { width: 95%; margin: 0 auto; clear: both; }
 
 .primary,
 .secondary { float: left; }
@@ -112,7 +78,10 @@ body a { outline: none; }
 #header #site-title a:hover { text-decoration: none; }
 #header #site-description { display: none; }
 
-#footer { border-top: 1px solid #CCC; padding-top: 20px; clear: both; margin-top: 20px; padding-bottom: 30px; }
+#footer { border-top: 1px solid #CCC; padding-top: 20px; clear: both; margin-top: 20px; padding-bottom: 30px; color: #666; }
+
+#page.no-sidebar .primary { width: auto; float: none; clear: both; }
+#page.no-sidebar .hfeed { padding-right: 0; }
 
 /* --- Sidebar stuff ------------------------------------------------------------------------------------ */
 .secondary { padding-top: 4px; }
@@ -122,22 +91,21 @@ body a { outline: none; }
 #header .headermenu { position: absolute; top: 0; right: 0; }
 #header .headermenu ul {  }
 #header .headermenu li { float: left; }
-#header .headermenu li a { display: block; padding: 120px 50px 10px 15px; color: #000; border-left: 1px solid #DDD; background: #FFF; font-size: 16px; }
+#header .headermenu li a { display: block; padding: 7em 3em 0.2em 1em; color: #000; border-left: 1px solid #DDD; background: #FFF;  }
 #header .headermenu li a:hover { border-color: #666; background: none; text-decoration: none; }
 #header .headermenu li.current-menu-item a,
 #header .headermenu li.current_page_item a { border-color: #111; background: #222; color: #FFF; }
 #header .headermenu li.admintab a { position: static; background: #FFF; }
 
 /* --- Posts ------------------------------------------------------------------------------------ */
-.hfeed { clear: both; padding-right: 100px; }
+.hfeed { clear: both; padding-right: 4em; overflow: hidden; }
 
 .hfeed .page-head h1 { font-size: 290%; margin-bottom: 40px; text-align: left; padding-bottom: 20px; border-bottom: 1px solid #CCC; color: #369; }
 
-.hentry { margin: 0 0 60px 0; overflow: hidden; }
+.hentry { margin: 0 0 3em 0; overflow: hidden; }
 
 .single .hentry { margin-bottom: 0; }
 .single .navigation { border: solid #CCC; border-width: 1px 0; margin-top: 40px; padding-top: 20px; padding-bottom: 10px; overflow: hidden; }
-
 
 .hfeed .panel { width: 50%; float: left; overflow: hidden; padding: 20px 0; }
 .hfeed .panel .hdr { padding-bottom: 10px; }
@@ -155,47 +123,37 @@ body a { outline: none; }
 
 .trim .hentry { margin-bottom: 20px; }
 
-.hentry h1 { font-size: 240%; line-height: 100%; margin-bottom: 20px; }
-.hentry h2 { font-size: 210%; line-height: 100%; margin-bottom: 10px; }
-.hentry h3 { font-size: 180%; line-height: 100%; margin-bottom: 10px; }
-.hentry h4 { font-size: 160%; line-height: 100%; margin-bottom: 5px; }
-.hentry h5 { font-size: 140%; line-height: 100%; }
-.hentry h6 { font-size: 100%; line-height: 100%; }
-
-.hentry .entry-header { padding-bottom: 20px; }
-.hentry .entry-header h1 { font-size: 270%; line-height: 110%; margin: 0 0 10px 0; }
-.hentry .entry-header h2 { font-size: 240%; line-height: 110%; margin: 0 0 5px 0; }
-.hentry .entry-header h3 { font-size: 240%; line-height: 110%; margin: 0 0 5px 0; }
+.hentry .entry-header { }
 .hentry .entry-header a { color: #000; }
-.hentry .entry-header a:hover { text-decoration: none; }
+.hentry .entry-header a:hover { text-decoration: underline; color: #369; }
 .hentry .entry-header .entry-edit {  }
 .hentry .entry-header .entry-meta { color: #999; }
 
 .hentry .entry-content { color: #333; }
 .hentry .entry-content p:empty { display: none; }
-.hentry .entry-content p { margin: 0; padding-bottom: 20px; text-align: left;  }
+.hentry .entry-content p { margin: 0; padding-bottom: 1em; text-align: left;  }
 .hentry .entry-content ul,
-.hentry .entry-content ol { padding: 10px 30px 20px 30px; margin: 0;   }
+.hentry .entry-content ol { padding: 0.5em 1.5em 1em 1.5em; margin: 0;   }
 .hentry .entry-content ul ul,
 .hentry .entry-content ol ol,
 .hentry .entry-content ol ul,
-.hentry .entry-content ul ol { padding: 5px 30px; margin: 0;   }
+.hentry .entry-content ul ol { padding: 0.25em 1.5em; margin: 0;   }
 .hentry .entry-content p + ul,
 .hentry .entry-content p + ol { padding-top: 0; }
 .hentry .entry-content ol li,
-.hentry .entry-content ul li { list-style: disc outside; display: list-item; padding-bottom: 10px; }
+.hentry .entry-content ul li { list-style: disc outside; display: list-item; padding-bottom: 0.5em; }
 .hentry .entry-content ol li { list-style: decimal outside; }
-.hentry .entry-content .alignright { float: right; margin-left: 15px; }
+.hentry .entry-content .alignright { float: right; margin-left: 0.75em; }
 
-.hentry .entry-content table { margin-bottom: 20px; border-collapse: collapse; border: 1px solid #CCC; }
+.hentry .entry-content table { margin-bottom: 1em; border-collapse: collapse; border: 1px solid #CCC; }
 .hentry .entry-content table td,
-.hentry .entry-content table th { border: 1px solid #CCC; padding: 5px 8px; }
+.hentry .entry-content table th { border: 1px solid #CCC; padding: 0.25em 0.3em; }
 .hentry .entry-content table th { background: #EEE; }
 
 .hentry .entry-content ul.image-list { overflow: hidden; padding: 0;  }
 .hentry .entry-content ul.image-list:after { clear: both; }
-.hentry .entry-content ul.image-list li { list-style: none outside; display: block; float: left; margin: 0 20px 20px 0; text-align: center;  }
-.hentry .entry-content ul.image-list li img { display: block; margin-bottom: 5px; }
+.hentry .entry-content ul.image-list li { list-style: none outside; display: block; float: left; margin: 0 1em 1em 0; text-align: center;  }
+.hentry .entry-content ul.image-list li img { display: block; margin-bottom: 0.25em; }
 
 .hentry .entry-content .gallery,
 .hentry .entry-content .flickr-photos {  }
@@ -203,50 +161,60 @@ body a { outline: none; }
 .hentry .entry-content .flickr-photos,
 .hentry .entry-content .flickr-photos:after { clear: both; overflow: hidden; }
 .hentry .entry-content .gallery .gallery-item,
-.hentry .entry-content .flickr-photos a { display: block; float: left; margin: 0 10px 21px 10px; }
+.hentry .entry-content .flickr-photos a { display: block; float: left; margin: 0 0.5em 1em 0.5em; }
 .hentry .entry-content .flickr-photos a img { display: block; }
 
-.hentry .entry-content blockquote { margin: 20px; padding: 20px 20px 10px 20px; border-left: 5px solid #CCC; }
-.hentry .entry-content blockquote p { color: #444; padding: 0 0 10px 0; }
-.hentry .entry-content blockquote ul { padding: 0 0 20px 0;  }
+.hentry .entry-content blockquote { margin: 1em; padding: 1em 1em 0.5em 1em; border-left: 5px solid #CCC; }
+.hentry .entry-content blockquote p { color: #444; padding: 0 0 0.5em 0; }
+.hentry .entry-content blockquote ul { padding: 0 0 1em 0;  }
 
 .hentry .entry-content dl { }
 .hentry .entry-content dl dt { font-weight: bold; }
-.hentry .entry-content dl dd { padding: 0 0 20px 20px; }
+.hentry .entry-content dl dd { padding: 0 0 1em 1em; }
 
-.hentry .entry-footer { clear: both; }
+.hentry .entry-content .newslist { padding: 0 0 2em 0; }
+.hentry .entry-content .newslist li { padding-bottom: 1em; }
+.hentry .entry-content .newslist li a { display: block; font-weight: bold; font-size: 1.5em; line-height: 1.4em; }
+.hentry .entry-content .newslist li .info { color: #999; }
+
+.hentry .entry-footer { clear: both; border-top: 1px dotted #CCC; color: #666; padding: 0.25em 0 0 0; margin: 1em 0 0 0; text-align: right; }
 .hentry .entry-footer a:hover { text-decoration: underline; }
 
-#tag-cloud { padding-bottom: 30px; }
+#tag-cloud { padding-bottom: 1.5em; }
 
 /* --- Navigation ------------------------------------------------------------------------------------ */
-.navigation a { font-size: 220%; color: #000; }
+.navigation a { font-size: 2.2em; line-height: 1.3em; color: #000; }
 .navigation .nav-previous,
-.navigation .left { float: left; width: 45%; text-align: left; }
+.navigation .left { float: left; width: 45%; text-align: right; }
 .navigation .nav-next,
-.navigation .right { float: right; width: 45%; text-align: right; }
+.navigation .right { float: right; width: 46%; text-align: left;  }
 
-body.home .navigation { padding-right: 70px; }
+.navigation .nav-previous,
+.navigation .left { width: 50%; border-right: 1px solid #CCC; }
+.navigation .nav-previous a,
+.navigation .left a { display: block; padding-right: 1em; }
 
-#nav-below.navigartion { margin-top: 20px; border-top: 1px solid #CCC; }
+#nav-below.navigation { overflow: hidden; }
+
+.custom-post-type-archive #nav-below.navigation { border-top: 1px solid #CCC; padding: 3em 0 0 0; margin: 2em 0 0 0; }
 
 /* --- Comments ------------------------------------------------------------------------------------ */
 .comments { margin-top: 70px; overflow: hidden;  }
-.comments h4 { font-size: 200%; line-height: 110%; margin-bottom: 20px; }
+.comments h4 { font-size: 2em; line-height: 1.1em; margin-bottom: 1em; }
 .comments .metalinks { display: none; }
 
 .comments ul#pinglist,
-.comments ul#commentlist { padding: 10px 0; overflow: hidden;  }
+.comments ul#commentlist { padding: 0.5em 0; overflow: hidden;  }
 
 .comments ul#commentlist { border-top: 1px solid #CCC; padding: 0; }
 .comments ul#commentlist li {  }
 .comments ul#commentlist li#leavecomment { display: none; }
-.comments ul#commentlist li .comment { border-bottom: 1px solid #CCC; padding: 10px; }
-.comments ul#commentlist li .comment p { padding-bottom: 10px; }
-.comments ul#commentlist li .comment .comment-head { clear: both; overflow: hidden; padding-bottom: 10px; }
+.comments ul#commentlist li .comment { border-bottom: 1px solid #CCC; padding: 0.5em; }
+.comments ul#commentlist li .comment p { padding-bottom: 0.5em; }
+.comments ul#commentlist li .comment .comment-head { clear: both; overflow: hidden; padding-bottom: 0.5em; }
 .comments ul#commentlist li .comment .comment-head .gravatar,
 .comments ul#commentlist li .comment .comment-head .gravatar img { display: block; }
-.comments ul#commentlist li .comment .comment-head .gravatar { float: left; margin-right: 10px; }
+.comments ul#commentlist li .comment .comment-head .gravatar { float: left; margin-right: 0.5em; }
 
 .comments ul#commentlist li .comment .comment-head .comment-author { font-weight: bold; }
 .comments ul#commentlist li .comment .comment-head .comment-author a {  }
@@ -254,30 +222,30 @@ body.home .navigation { padding-right: 70px; }
 .comments ul#commentlist li .comment .comment-head .comment-content {  }
 .comments ul#commentlist li .comment .buttons { display: none; }
 
-.comments #respond { margin-top: 40px; }
-.comments #respond h4 { margin-bottom: 10px; }
+.comments #respond { margin-top: 2em; }
+.comments #respond h4 { margin-bottom: 1em; }
 .comments #respond form { margin-bottom: 0; }
-.comments #respond form input[type=text] { margin: 0 5px 10px 0; }
+.comments #respond form input[type=text] { margin: 0 0.25em 0.5em 0; }
 .comments #respond form input,
 .comments #respond form textarea { border: 1px solid #CCC; border-bottom: 2px solid #999; padding: 4px 5px; outline: none; }
-.comments #respond form textarea { width: 95%; padding: 8px 10px;  }
+.comments #respond form textarea { width: 95%; padding: 0.3em 0.5em;  }
 
 .comments #respond form input:focus,
 .comments #respond form textarea:focus { border-color: black; }
 
-.comments #respond form #submit { cursor: pointer; float: none; padding: 5px 40px;  }
+.comments #respond form #submit { cursor: pointer; float: none; padding: 0.25em 2em;  }
 .comments #respond form #submit:hover { background: #666; color: #FFF; border-color: #333; }
 
 /* --- Widgets ------------------------------------------------------------------------------------ */
-.widget h4 { font-size: 180%; }
-.widget ul { margin-top: 5px; padding: 10px 10px; }
-.widget ul ul { margin-top: 5px; padding: 0 5px; }
+.widget h4 { font-size: 1.8em; }
+.widget ul { margin-top: 5px; padding: 0.5em; }
+.widget ul ul { margin-top: 0.25em; padding: 0 0.25em; }
 .widget ul li { display: list-item; list-style: disc inside; }
 
-.secondary .widget { margin-bottom: 40px; }
+.secondary .widget { margin-bottom: 2em; }
 .secondary .widget ul { padding-right: 0; }
 
-.secondary .widget.widget_search h4 { margin-bottom: 15px; }
+.secondary .widget.widget_search h4 { margin-bottom: 0.75em; }
 .secondary .widget.widget_search #searchsubmit { display: none; }
 
 .secondary .widget.widget_text {  }
@@ -289,21 +257,38 @@ body.home .navigation { padding-right: 70px; }
 
 .secondary .widget.widget_calendar #calendar_wrap { margin-top: -27px; }
 .secondary .widget.widget_calendar #calendar_wrap table#wp-calendar { border-collapse: collapse;  }
-.secondary .widget.widget_calendar #calendar_wrap table#wp-calendar caption { padding: 10px 0 15px 0; text-align: left; color: #000; text-transform: capitalize; font-size: 180%; text-align: right; }
-.secondary .widget.widget_calendar #calendar_wrap table#wp-calendar thead th { padding: 5px 0; }
+.secondary .widget.widget_calendar #calendar_wrap table#wp-calendar caption { padding: 0.5em 0 0.75em 0; text-align: left; color: #000; text-transform: capitalize; font-size: 180%; text-align: right; }
+.secondary .widget.widget_calendar #calendar_wrap table#wp-calendar thead th { padding: 0.25em 0; }
 .secondary .widget.widget_calendar #calendar_wrap table#wp-calendar tbody td { padding: 5px 8px; text-align: right; }
 .secondary .widget.widget_calendar #calendar_wrap table#wp-calendar tbody td#today { background: #333; color: #FFF; }
-.secondary .widget.widget_calendar #calendar_wrap table#wp-calendar tfoot td { padding-top: 10px; }
-.secondary .widget.widget_calendar #calendar_wrap table#wp-calendar tfoot td#prev { padding-left: 10px; }
-.secondary .widget.widget_calendar #calendar_wrap table#wp-calendar tfoot td#next { padding-right: 10px; text-align: right;  }
+.secondary .widget.widget_calendar #calendar_wrap table#wp-calendar tfoot td { padding-top: 0.5em; }
+.secondary .widget.widget_calendar #calendar_wrap table#wp-calendar tfoot td#prev { padding-left: 0.5em; }
+.secondary .widget.widget_calendar #calendar_wrap table#wp-calendar tfoot td#next { padding-right: 0.5em; text-align: right;  }
 
-.secondary .widget.widget_rss li { margin-bottom: 5px; }
+.secondary .widget_calendar_upcoming ul { padding: 0; margin: 0; }
+
+.secondary .widget_calendar_upcoming h4 { padding-bottom: 10px; }
+.secondary .widget_calendar_upcoming > ul > li { list-style: none inside; }
+.secondary .widget_calendar_upcoming > ul > li > strong { padding-bottom: 5px; }
+.secondary .widget_calendar_upcoming > ul > li > ul { padding: 0 0 15px 0; }
+
+.secondary .widget_calendar_upcoming .calnk a { border: none; color: #666; }
+.secondary .widget_calendar_upcoming .calnk a > span { display: none; }
+.secondary .widget_calendar_upcoming .calnk a > span .event-title { text-align: left; background: #FFF; width: 230px; }
+.secondary .widget_calendar_upcoming .calnk a > span .event-content-break,
+.secondary .widget_calendar_upcoming .calnk a > span .event-title-break { display: none; }
+
+.secondary .widget_calendar_upcoming .calnk a:hover { color: #000; border-bottom: 1px solid #CCC; text-decoration: none; }
+.secondary .widget_calendar_upcoming .calnk a:hover > span { background: #FFF; border: 1px solid #CCC; color: #333;	display: block; line-height: 1.2em;	margin-top: 1px; padding: 15px;	position: absolute;	width: 250px; z-index: 100; text-decoration: none !important; }
+
+
+.secondary .widget.widget_rss li { margin-bottom: 0.25em; }
 .secondary .widget.widget_rss li .rss-date { display: block; }
 
 .widget.TanTanFlickrWidget_display,
-.widget.widget_flickrRSS { overflow: hidden; padding-bottom: 30px;  }
+.widget.widget_flickrRSS { overflow: hidden; padding-bottom: 1.5em;  }
 .widget.TanTanFlickrWidget_display h4,
-.widget.widget_flickrRSS h4 { padding-bottom: 10px; margin: 0;  }
+.widget.widget_flickrRSS h4 { padding-bottom: 0.5em; margin: 0;  }
 .widget.TanTanFlickrWidget_display a,
 .widget.widget_flickrRSS a { display: block; width: 75px; height: 75px; overflow: hidden; margin: 3px 0 0 3px; float: left; border: 4px solid #CCC;  }
 .widget.TanTanFlickrWidget_display a img,
@@ -318,29 +303,66 @@ body.home .navigation { padding-right: 70px; }
 .widget.widget_meta {  }
 .widget.widget_meta ul {  }
 
-#tweetblender-3 h4 { margin-bottom: 20px; }
+#tweetblender-3 h4 { margin-bottom: 1em; }
 #tweetblender-3 .tb_header { display: none; }
-#tweetblender-3 .tb_tweet { border: none !important; margin-bottom: 15px; }
+#tweetblender-3 .tb_tweet { border: none !important; margin-bottom: 1.25em; }
 #tweetblender-3 .tb_tweet-info { float: right; }
 
-.widget.widget_tag_cloud div { padding: 0 10px;  }
+.widget.widget_tag_cloud div { padding: 0 0.5em;  }
 
-.widget.widget_twitter ul li { margin-bottom: 10px; }
+.widget.widget_twitter ul li { margin-bottom: 0.5em; }
 .widget.widget_twitter ul li .twitter-timestamp { display: block; text-align: right; }
 
 .widget.widget_recent_comments { }
 .widget.widget_recent_comments li.recentcomments a {  }
 .widget.widget_recent_comments li.recentcomments a.url {  }
 
-#widgetspost .widget { margin-top: 20px; }
+.widget.gsom_widget h4.widgettitle { padding-bottom: 10px; }
 
-#widgets-bottom { margin-top: 70px; padding-top: 20px; border-top: 1px solid #CCC; }
-#widgets-bottom .widget { width: 33%; float: left;  }
-#widgets-bottom .widget ul { padding: 0 10px; margin: 0; }
-#widgets-bottom .widget h4 { padding-bottom: 15px; }
+.widget.gsom_widget { padding-bottom: 20px; }
+.widget.gsom_widget .gsom-optin-form {  }
+.widget.gsom_widget .gsom-optin-form .gsom-optin-div-label { width: 50px; overflow: hidden; float: left;  }
+.widget.gsom_widget .gsom-optin-form .gsom_sfi input { width: 130px; border: 1px solid #CCC; border-bottom: 2px solid #999; padding: 4px 5px; outline: none; float: left; }
+.widget.gsom_widget .gsom-optin-form .gsom-required-msg { display: block; padding: 3px 0; border-bottom: 2px solid #900; }
+
+.widget.gsom_widget .gsom-optin-radiogroup,
+.widget.gsom_widget .gsom-optin-radiogroup input { float: none; }
+
+#widgetspost .widget { margin-top: 1em; }
+
+#widgets-bottom { margin-top: 4em; padding-top: 1em; border-top: 1px solid #CCC; overflow: hidden; clear: both; }
+#widgets-bottom .widget { width: 30%; margin: 0 3% 0 0; float: left;  }
+#widgets-bottom .widget ul { padding: 0 0.5em; margin: 0; }
+
+/* --- Homepage styles -------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+.home #welcome { padding-bottom: 2em; margin-bottom: 2em; border-bottom: 1px solid #CCC; }
+.home .hfeed .mod { width: 50%; float: left; padding: 0 0 1em 0; }
+.home .hfeed .mod .hdr { overflow: hidden; padding-top: 5px; }
+.home .hfeed .mod .hdr .rss { display: block; width: 32px; height: 32px; overflow: hidden; text-indent: -1920px; float: left; margin: -0.4em 0 0 1em; opacity: 0.2; background: url(images/rss.png) left top no-repeat; }
+.home .hfeed .mod .hdr .rss:hover { opacity: 1; }
+.home .hfeed .mod .hdr h2 { padding-bottom: 0.5em; float: left; }
+.home .hfeed .mod ul.cnt { padding: 0 2.5em 0 0; }
+.home .hfeed .mod ul.cnt li { padding: 0 0 0.5em 0; }
+.home .hfeed .mod ul.cnt li .entry-header a { font-weight: bold; font-size: 1.2em;}
+.home .hfeed .mod .entry-meta { display: block; color: #999; font-size: 0.9em; }
+
+.home .hfeed .mod#courses,
+.home .mod#calendarmod,
+.home .hfeed .mod#projects { border: solid #CCC; border-width: 1px 0 0 0; padding: 2em 0 0 0; margin: 1em 0 0 0; } 
+.home .hfeed .mod#post { width: 100%; clear: both; float: none; padding: 2em 0 0 0; margin: 2em 0 0 0; border-top: 1px solid #CCC; }
+.home .hfeed .mod#post ul.cnt li { padding-bottom: 1.5em; }
+.home .hfeed .mod#post ul.cnt li .entry-header a { font-size: 1.4em; }
+.home .hfeed .mod#post ul.cnt li .entry-content { display: block; padding: 1em 0; }
+
+.home .mod#calendarmod { width: 100%; float: none; clear: both; }
+.home .mod#calendarmod .hentry .entry-content table th,
+.home .mod#calendarmod .hentry .entry-content table td { font-size: 0.9em; line-height: 0.5em; }
+.home .mod#calendarmod .hentry .entry-content table th .calnk a,
+.home .mod#calendarmod .hentry .entry-content table td .calnk a { line-height: 1.2em;}
+.home .mod#calendarmod .hentry .entry-content table td .calnk a span br { display: none; }
+.home .mod#calendarmod .hentry .entry-content table.calendar-table td > span { font-size: 12px; font-weight: bold; }
 
 /* --- Search Widget,incl. Livesearch --------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
 input[type=text],
 textarea{ color: #444; padding: 1px; margin: 0; }
 
@@ -372,3 +394,56 @@ textarea{ color: #444; padding: 1px; margin: 0; }
 #searchsubmit	{ float:right;width:30%;}/* Static search button */
 
 .hidden { display: none; }
+
+body.showrollingarchives.custom-post-type-archive .navigation { display: block; }
+body.custom-post-type-archive #rollingarchives,
+body.custom-post-type-archive #rollingarchivesbg { display: none; }
+
+/* --- Grid --------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+.col { float: left; overflow: hidden; }
+.col.w2 { width: 50%; }
+.col.w3 { width: 33%; }
+/* --- calendar --------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+.page.slug-calendar .primary .hfeed .kjo-link p { display: none !important; }
+
+.entry-content table.calendar-table { width: 100%;  table-layout: fixed; border-collapse: collapse; }
+.entry-content table.calendar-table td { padding: 3px 5px; }
+
+.entry-content table.calendar-table td.calendar-heading { padding: 0; border: none; }
+.entry-content table.calendar-table td.calendar-heading table { padding: 0; margin: 0; border: none; }
+.entry-content table.calendar-table td.calendar-heading table td { height: auto; padding: 10px; font-size: 18px; border: none; }
+.entry-content table.calendar-table td.calendar-heading table td.calendar-prev {  }
+.entry-content table.calendar-table td.calendar-heading table td.calendar-month { text-align: center; border-left: none; }
+.entry-content table.calendar-table td.calendar-heading table td.calendar-next { text-align: right; }
+
+.entry-content table.calendar-table td.normal-day-heading,
+.entry-content table.calendar-table td.weekend-heading { font-weight: bold; text-align: center; padding: 5px; height: auto;  }
+.entry-content table.calendar-table td.weekend-heading {  }
+.entry-content table.calendar-table td.day-without-date { background: #F5F5F5; }
+.entry-content table.calendar-table td.day-with-date { vertical-align: bottom; }
+.entry-content table.calendar-table td.day-with-date.no-events {  }
+.entry-content table.calendar-table td.day-with-date { }
+
+.entry-content table.calendar-table td { height: 60px; vertical-align: top !important; }
+.entry-content table.calendar-table td span { display: block; }
+.entry-content table.calendar-table td > span { display: block; font-size: 21px; padding: 5px 0 10px 0; clear: both; }
+
+.entry-content table.calendar-table td span.event { font-size: 1px; color: #FFF; font-weight: bold; color: #090; cursor: pointer; padding: 0; }
+.entry-content table.calendar-table td span.event br { display: block; height: 1px; line-height: 1px; overflow: hidden; }
+.entry-content table.calendar-table td span.event span.calnk { display: inline; font-size: 12px; color: #000; }
+.entry-content table.calendar-table td span.event span.calnk a { display: inline; position: relative; text-decoration: none !important; color: #369; padding: 0 0 0 3px; }
+.entry-content table.calendar-table td span.event span.calnk a > span { display: none; width: 200px; background: #FFF; position: absolute; bottom: 100%; right: 0; padding: 10px; border: 1px solid #CCC; text-decoration: none !important; }
+.entry-content table.calendar-table td span.event span.calnk a > span .event-title { display: none; }
+.entry-content table.calendar-table td span.event span.calnk a > span .event-title-break { display: none; }
+.entry-content table.calendar-table td span.event span.calnk a > span .event-content-break { display: block; height: 5px;  }
+.entry-content table.calendar-table td span.event span.calnk a > span strong { font-weight: normal; text-decoration: none; }
+
+.entry-content table.calendar-table tr td:first-child span.event span.calnk a > span { bottom: 100%; right: -100%; }
+.entry-content table.calendar-table td span.event span.calnk a:hover > span { display: block; text-decoration: none !important; color: #000; }
+
+.entry-content table.calendar-table td[colspan=7] { padding: 20px; }
+.entry-content table.calendar-table td table.cat-key { border: none; margin: 0; display: none; }
+.entry-content table.calendar-table td table.cat-key td { padding: 0; border: none; height: auto;  }
+.entry-content table.calendar-table td table.cat-key strong { display: none; }
+
+
