@@ -34,10 +34,6 @@ get_header(); ?>
 
 					<?php /* Edit Link */ edit_post_link( __('Edit', 'k2'), '<span class="entry-edit">', '</span>' ); ?>
 
-					<div class="entry-meta">
-						<?php k2_entry_meta(1); ?>
-					</div> <!-- .entry-meta -->
-
 					<?php /* K2 Hook */ do_action('template_entry_head'); ?>
 				</div><!-- .entry-header -->
 

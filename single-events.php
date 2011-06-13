@@ -19,7 +19,7 @@ get_header(); ?>
 		<?php /* K2 Hook */ do_action('template_primary_begin'); ?>
 
 		<div class="content hfeed">
-			
+
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 			<div id="entry-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -29,10 +29,6 @@ get_header(); ?>
 					</h1>
 
 					<?php /* Edit Link */ edit_post_link( __('Edit', 'k2'), '<span class="entry-edit">', '</span>' ); ?>
-
-					<div class="entry-meta">
-						<?php k2_entry_meta(1); ?>
-					</div> <!-- .entry-meta -->
 
 					<?php /* K2 Hook */ do_action('template_entry_head'); ?>
 				</div><!-- .entry-header -->
@@ -52,7 +48,7 @@ get_header(); ?>
 			</div><!-- #entry-ID -->
 
 			<div class="cleaner">&nbsp;</div>
-			
+
 			<div id="widgetspost" class="widgets">
 				<?php dynamic_sidebar('widgetspost'); ?>
 			</div>
