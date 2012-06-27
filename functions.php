@@ -1,13 +1,5 @@
 <?php
-	add_filter('gallery_style', create_function('$a', 'return preg_replace("%<style type=\'text/css\'>(.*?)</style>%s", "", $a);'));
-
-	function remove_wp_widget_recent_comments_style() {
-	      remove_filter('wp_head', 'wp_widget_recent_comments_style');
-	}
-	add_filter( 'wp_head', 'remove_wp_widget_recent_comments_style');
-
 	wp_enqueue_script( 'initlab-common', get_bloginfo( 'stylesheet_directory' ) . '/scripts/common.js', array('jquery') );
-	wp_enqueue_style( 'initlab-less', get_bloginfo( 'stylesheet_directory' ) . '/styles/lessframework.css' );
 
 	if ( function_exists('register_sidebar') ){
 
@@ -34,7 +26,7 @@
 		<script type="text/javascript">
 			WebFontConfig = {
 				google: {
-					families: [ 'PT Sans', 'PT Serif', 'Open Sans' ]
+					families: [ 'PT Sans' ]
 				}
 			}
 
@@ -51,56 +43,6 @@
 		</script>
 		<?php
 	}
-	add_filter( 'wp_head', 'load_fonts');
-
-	// Content selection function. Used primarily on the homepage.
-	function selectContent($type, $count, $title) {
-
-		if($type=='courses')
-		{
-			$content = new WP_Query( array( 'post_type' => $type, 'meta_key' => 'project', 'meta_value' => 'true', 'showposts' => $count ) );
-		}
-		elseif($type=='projects')
-		{
-			$content = new WP_Query( array( 'post_type' => $type, 'meta_key' => 'project', 'meta_value' => 'true', 'showposts' => $count ) );
-		}
-		else
-		{
-			$content = new WP_Query( array( 'post_type' => $type, 'showposts' => $count ) );
-		}
-
-		?>
-
-		<div id="<?php echo $type; ?>" class="mod">
-		<div class="hdr"><h2><?php echo $title; ?></h2><a href="<?php if($type != 'post'){ echo '/'.$type; } ?>/feed" target="_blank" class="rss">RSS</a></div>
-			<ul class="cnt">
-			<?php while ( $content->have_posts() ) : $content->the_post(); ?>
-				<li id="entry-<?php the_ID(); ?>">
-					<span class="entry-header">
-						<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php k2_permalink_title(); ?>"><?php the_title(); ?></a>
-						<?php
-							/* Edit Link */
-							edit_post_link( __('Edit', 'k2'), '<span class="entry-edit">', '</span>' );
-						?>
-						<span class="entry-meta">
-							<?php  k2_entry_meta(1); ?>
-						</span>
-						<?php
-							/* K2 Hook */
-							do_action('template_entry_head');
-						?>
-					</span>
-					<?php if($type=="post"){?>
-						<?php the_excerpt(); ?>
-					<?php } ?>
-				</li>
-			<?php endwhile; /* End The Loop */ ?>
-			</ul>
-			<p><a class="more" href="<?php if($type!='post'){ echo '/'.$type; } ?>">Виж всички &raquo;</a></p>
-		</div>
-
-	<?php
-	wp_reset_postdata();
-	}
+	//add_filter( 'wp_head', 'load_fonts');
 
 ?>
