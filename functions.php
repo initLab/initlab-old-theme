@@ -1,5 +1,44 @@
 <?php
-	wp_enqueue_script( 'initlab-common', get_bloginfo( 'stylesheet_directory' ) . '/scripts/common.js', array('jquery') );
+
+    add_filter( 'use_default_gallery_style', '__return_false' ); //Remove Gallery Inline Styling
+
+    // Year Shortcode
+    function year_shortcode() {
+      $year = date('Y');
+      return $year;
+    }
+    add_shortcode('year', 'year_shortcode');
+
+    //Turn On More Buttons in the WordPress Visual Editor
+    function add_more_buttons($buttons) {
+     $buttons[] = 'hr';
+     $buttons[] = 'del';
+     $buttons[] = 'sub';
+     $buttons[] = 'sup';
+     $buttons[] = 'fontselect';
+     $buttons[] = 'fontsizeselect';
+     $buttons[] = 'cleanup';
+     $buttons[] = 'styleselect';
+     return $buttons;
+    }
+    add_filter("mce_buttons_3", "add_more_buttons");
+
+    // Detect Gists and Embed Them
+
+    // [gist id="ID" file="FILE"]
+    function gist_shortcode($atts) {
+      return sprintf(
+        '<script src="https://gist.github.com/%s.js%s"></script>',
+        $atts['id'],
+        $atts['file'] ? '?file=' . $atts['file'] : ''
+      );
+    } add_shortcode('gist','gist_shortcode');
+
+    // Remove this function if you don't want autoreplace gist links to shortcodes
+    function gist_shortcode_filter($content) {
+      return preg_replace('/https:\/\/gist.github.com\/([\d]+)[\.js\?]*[\#]*file[=|_]+([\w\.]+)(?![^<]*<\/a>)/i', '[gist id="${1}" file="${2}"]', $content );
+    } add_filter( 'the_content', 'gist_shortcode_filter', 9);
+
 
 	if ( function_exists('register_sidebar') ){
 
@@ -19,10 +58,6 @@
 	// Fonts loading from Google Web Fonts direcory. JavaScrip loading gives us feedback on the loaded status of every font.
 	function load_fonts()
 	{																		?>
-		<script
-			type="text/javascript"
-			src="http://www.google.com/jsapi?key=ABQIAAAA0m4OXZCc-BMR9w3Ml16ZMxQ8-tzA9NU1mD3xYgw4R-6I36tNQRS05e8e0tgHafN4dfp4Nb9qtSbkOw">
-		</script>
 		<script type="text/javascript">
 			WebFontConfig = {
 				google: {
