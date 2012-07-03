@@ -2,6 +2,8 @@
 @import "settings";
 @import "foundation";
 
+@import "foundation-icons-general";
+
 // Import Each Specific Piece for SASS
 // @import "foundation/base";
 // @import "foundation/globals";
@@ -17,4 +19,33 @@
 // @import "foundation/ie";
 // @import "foundation/app";
 
+// Typography
+$ratio: $golden;
+$base-size: 14px 44px;
+
+h6 { font-size: ms(0); }
+h5 { font-size: ms(1); }
+h4 { font-size: ms(2); }
+h3 { font-size: ms(3); }
+h2 { font-size: ms(4); }
+h1 { font-size: ms(5); }
+
+
+// Layout
+#container {
+	
+
+	& > header {
+
+	}
+
+	& > footer { 
+
+	}
+
+	& > #main { 
+		
+	}
+
+}
 
