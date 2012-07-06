@@ -1,5 +1,18 @@
 jQuery(document).ready(function ($) {
 
+	// Fonts loading from Google Web Fonts direcory. JavaScrip loading gives us feedback on the loaded status of every font.
+	WebFontConfig = { google: { families: [ 'PT Sans' ] } }
+	function wf_load()
+	{
+		var wf = document.createElement('script');
+		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+		wf.type = 'text/javascript';
+		wf.async = 'true';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(wf, s);
+	}
+	wf_load();
+
   /* Use this js doc for all application specific JS */
 
   /* TABS --------------------------------- */
@@ -43,78 +56,15 @@ jQuery(document).ready(function ($) {
 
   /* PLACEHOLDER FOR FORMS ------------- */
   /* Remove this and jquery.placeholder.min.js if you don't need :) */
-  $('input, textarea').placeholder();
+  // $('input, textarea').placeholder();
 
   /* TOOLTIPS ------------ */
-  $(this).tooltips();
+  // $(this).tooltips();
 
   /* UNCOMMENT THE LINE YOU WANT BELOW IF YOU WANT IE6/7/8 SUPPORT AND ARE USING .block-grids */
   //  $('.block-grid.two-up>li:nth-child(2n+1)').css({clear: 'left'});
   //  $('.block-grid.three-up>li:nth-child(3n+1)').css({clear: 'left'});
   //  $('.block-grid.four-up>li:nth-child(4n+1)').css({clear: 'left'});
   //  $('.block-grid.five-up>li:nth-child(5n+1)').css({clear: 'left'});
-
-
-  /* DROPDOWN NAV ------------- */
-
-  var lockNavBar = false;
-  /* Windows Phone, sadly, does not register touch events :( */
-  if (Modernizr.touch || navigator.userAgent.match(/Windows Phone/i)) {
-    $('.nav-bar a.flyout-toggle').on('click.fndtn touchstart.fndtn', function(e) {
-      e.preventDefault();
-      var flyout = $(this).siblings('.flyout').first();
-      if (lockNavBar === false) {
-        $('.nav-bar .flyout').not(flyout).slideUp(500);
-        flyout.slideToggle(500, function(){
-          lockNavBar = false;
-        });
-      }
-      lockNavBar = true;
-    });
-    $('.nav-bar>li.has-flyout').addClass('is-touch');
-  } else {
-    $('.nav-bar>li.has-flyout').hover(function() {
-      $(this).children('.flyout').show();
-    }, function() {
-      $(this).children('.flyout').hide();
-    });
-  }
-
-  /* DISABLED BUTTONS ------------- */
-  /* Gives elements with a class of 'disabled' a return: false; */
-
-  /* SPLIT BUTTONS/DROPDOWNS */
-  $('.button.dropdown > ul').addClass('no-hover');
-
-  $('.button.dropdown').on('click.fndtn touchstart.fndtn', function (e) {
-    e.stopPropagation();
-  });
-  $('.button.dropdown.split span').on('click.fndtn touchstart.fndtn', function (e) {
-    e.preventDefault();
-    $('.button.dropdown').not($(this).parent()).children('ul').removeClass('show-dropdown');
-    $(this).siblings('ul').toggleClass('show-dropdown');
-  });
-  $('.button.dropdown').not('.split').on('click.fndtn touchstart.fndtn', function (e) {
-    e.preventDefault();
-    $('.button.dropdown').not(this).children('ul').removeClass('show-dropdown');
-    $(this).children('ul').toggleClass('show-dropdown');
-  });
-  $('body, html').on('click.fndtn touchstart.fndtn', function () {
-    $('.button.dropdown ul').removeClass('show-dropdown');
-  });
-
-  // Positioning the Flyout List
-  var normalButtonHeight  = $('.button.dropdown:not(.large):not(.small):not(.tiny)').outerHeight() - 1,
-      largeButtonHeight   = $('.button.large.dropdown').outerHeight() - 1,
-      smallButtonHeight   = $('.button.small.dropdown').outerHeight() - 1,
-      tinyButtonHeight    = $('.button.tiny.dropdown').outerHeight() - 1;
-
-  $('.button.dropdown:not(.large):not(.small):not(.tiny) > ul').css('top', normalButtonHeight);
-  $('.button.dropdown.large > ul').css('top', largeButtonHeight);
-  $('.button.dropdown.small > ul').css('top', smallButtonHeight);
-  $('.button.dropdown.tiny > ul').css('top', tinyButtonHeight);
-
-  /* CUSTOM FORMS */
-  $.foundation.customForms.appendCustomMarkup();
 
 });
