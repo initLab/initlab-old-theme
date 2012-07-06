@@ -1,0 +1,46 @@
+/* TEAM */
+
+  Company Name
+  Site: http://example.com
+  Twitter: @twitter
+  Location: Country
+  
+/* THANKS */
+
+  Fairhead Creative
+  Site: http://fairheadcreative.com
+  Twitter: @fairheadc
+  Location: US
+
+  ZURB
+  Site: http://www.zurb.com
+  Twitter: @zurb
+  Location: US
+  
+/* SITE */
+
+  Standards: HTML5, CSS3
+  Components: jQuery, Orbit, Reveal, ImgSizer, ResponsiveImgs
+  Software: Espresso, Git
+
+
+                 ``....``
+            .-/++++++++++++:-.
+         ./++++++++++++++++++++:.
+       -++++++++++++++++/.`.+++++/.
+     `/++++++++///////+/  `/+++++++/`
+    .+++++:-`            ./++++++++++`
+   .+++:`                  `-+++++++++`
+   /+-                        :+++++++/
+  .:`          `.--::--.       -+++++++`
+  `         `-/++++++++++:`     /++++++.
+           -+++++++++++++++`    .++++++.
+          :++++++//++++++++:    .++++++`
+         `++++++` .++++++++-    :+++++:
+         .+++++:  `+++++++:    :++++++`
+         `++++++`  `-:::-`   ./+++++/`
+          :++++++:`       `-/++++++:
+           :++++++++//://++++++++:`
+            ./++++++++++++++++/-`
+              `-:/++++++++/:.`
+                     ```
