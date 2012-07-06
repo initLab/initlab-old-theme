@@ -2,27 +2,14 @@
 @import "settings";
 @import "foundation";
 
+/* Custom imports */
 @import "foundation-icons-general";
 
-// Import Each Specific Piece for SASS
-// @import "foundation/base";
-// @import "foundation/globals";
-// @import "foundation/typography";
-// @import "foundation/grid";
-// @import "foundation/ui";
-// @import "foundation/buttons";
-// @import "foundation/tabs";
-// @import "foundation/navbar";
-// @import "foundation/forms";
-// @import "foundation/orbit";
-// @import "foundation/reveal";
-// @import "foundation/ie";
-// @import "foundation/app";
-
-// Typography
+/* Typography */
 $ratio: $golden;
 $base-size: 14px 44px;
 
+body { font-family: "PT Sans", Gill Sans, sans-serif; }
 h6 { font-size: ms(0); }
 h5 { font-size: ms(1); }
 h4 { font-size: ms(2); }
@@ -33,10 +20,12 @@ h1 { font-size: ms(5); }
 
 // Layout
 #container {
-	
+	@include outerRow();
 
 	& > header {
+		overflow: hidden; 
 
+		h1 { float: left; }
 	}
 
 	& > footer { 
@@ -44,8 +33,19 @@ h1 { font-size: ms(5); }
 	}
 
 	& > #main { 
-		
+		overflow: hidden; 
 	}
 
 }
 
+ul#navigation {
+	float: right; 
+}
+
+.panel {
+	@include column(4);
+	background: #EEE; 
+	
+	header { text-align: center; }
+	.glyph { font-size: ms(6); text-align: center; padding: ms(2) 0;   } 
+}

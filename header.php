@@ -31,8 +31,13 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-
-
-	<!-- container -->
-	<div class="container">
-
+	<div id="container">
+		<header>
+			<h1>Title</h1>
+			<ul id="navigation" class="link-list">
+				<li><a href="/login">Login</a></li>
+				<li><a href="/register">Register</a></li>
+			</ul>
+			<?php wp_nav_menu( 'header' ); ?>
+		</header>
+		<div id="main">

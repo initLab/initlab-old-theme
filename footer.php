@@ -1,3 +1,7 @@
+		</div>
+		<footer>
+			<?php wp_nav_menu( 'footer' ); ?>
+		</footer>
 	</div>
 	<!-- container -->
 

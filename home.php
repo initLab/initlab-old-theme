@@ -6,26 +6,31 @@
 
 <?php get_header(); ?>
 
-<div class="row">
-  <div class="eight columns">
-    Main content...
-  </div>
-  <div class="four columns">
-    Sidebar...
-  </div>
-</div>
+	<section class="panel">
+		<div class="glyph general">l</div>
+		<header>
+			<h3>Panel Title 1</h3>
+		</header>
+		<div class="content">
+		</div>
+	</section>
 
-<div class="row">
-  <div class="eight columns">
-    <div class="row">
-      <div class="six columns">
-        Six columns (nested)
-      </div>
-      <div class="six columns">
-        Six columns (nested)
-      </div>
-    </div>
-  </div>
-</div>
+	<section class="panel">
+		<div class="glyph general">I</div>
+		<header>
+			<h3>Panel Title 2</h3>
+		</header>
+		<div class="content">
+		</div>
+	</section>
+
+	<section class="panel">
+		<div class="glyph general">o</div>
+		<header>
+			<h3>Panel Title 3</h3>
+		</header>
+		<div class="content">
+		</div>
+	</section>
 
 <?php get_footer(); ?>
