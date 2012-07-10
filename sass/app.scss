@@ -1,51 +1,78 @@
-/* Artfully masterminded by ZURB  */
-@import "settings";
-@import "foundation";
-
 /* Custom imports */
 @import "foundation-icons-general";
+@import "typography";
+@import "_sitemap";
 
-/* Typography */
-$ratio: $golden;
-$base-size: 14px 44px;
-
-body { font-family: "PT Sans", Gill Sans, sans-serif; }
-h6 { font-size: ms(0); }
-h5 { font-size: ms(1); }
-h4 { font-size: ms(2); }
-h3 { font-size: ms(3); }
-h2 { font-size: ms(4); }
-h1 { font-size: ms(5); }
-
+* { margin: 0; padding: 0; }
+body { background: url('../images/body_bgrd.png'); }
 
 // Layout
 #container {
-	@include outerRow();
+	width: 80%;
+	max-width: 1200px;
+	margin: 0 auto; 
+	background: #FFF; 
+	border: solid #CCC;
+	border-width: 0 1px;
 
 	& > header {
 		overflow: hidden; 
+		border-bottom: 1px solid #CCC; 
 
 		h1 { float: left; }
+
+		.menu {
+			padding: 1em; 
+		}
 	}
 
 	& > footer { 
-
+		border-top: 1px solid #CCC; 
+		padding: 2em; 
 	}
 
 	& > #main { 
 		overflow: hidden; 
+
+		& > article {
+			padding: 0 2em; 
+			
+			header {
+				p.meta {
+
+				}
+			}
+		}
 	}
 
 }
 
-ul#navigation {
-	float: right; 
+
+ul.menu {
+
+	& * { display: block; }
+
+	li {
+		list-style: none outside;
+		a {
+
+		}
+	}
 }
 
 .panel {
-	@include column(4);
 	background: #EEE; 
 	
 	header { text-align: center; }
-	.glyph { font-size: ms(6); text-align: center; padding: ms(2) 0;   } 
+	.glyph { text-align: center; } 
+}
+
+.debug {
+	white-space: pre;
+	padding: 2em; 
+}
+
+.breadcrumbs {
+	border: solid #ccc;
+	border-width: 0 0 1px 0;
 }
