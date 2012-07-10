@@ -1,9 +1,23 @@
 <?php
 
+    // Helper functions
+    function de($var, $debug=true)
+    {
+        if($debug)
+        {
+            echo '<div class="debug">';
+                var_dump($var);
+            echo '</div>';
+        }
+    }
+
+    // Includes
     include 'lib/adminTweaks.php';
     include 'lib/rteTweaks.php';
     include 'lib/rteShortCodes.php';
     include 'lib/customwidgets.php';
+    include 'lib/createCustomPostType.php';
+    include 'breadcrumbs.php';
 
     add_filter( 'use_default_gallery_style', '__return_false' ); //Remove Gallery Inline Styling
 
@@ -18,19 +32,10 @@
         )
     );
 
-    register_nav_menus(
-        array(
-            'header' => 'Header',
-            'sidebar' => 'Sidebar',
-            'footer' => 'Footer'
-        )
-    );
+    register_nav_menu( 'header', 'Header' );
+    register_nav_menu( 'sidebar', 'Sidebar');
+    register_nav_menu( 'sitemap', 'Sitemap');
+    register_nav_menu( 'footer', 'Footer');
 
-    function my_wp_nav_menu_args( $args = '' )
-    {
-        $args['container'] = false;
-        return $args;
-    }
-    add_filter( 'wp_nav_menu_args', 'my_wp_nav_menu_args' );
 
 ?>
