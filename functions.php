@@ -19,6 +19,10 @@
     include 'lib/createCustomPostType.php';
     include 'breadcrumbs.php';
 
+	//global $wp_query;
+	//$cur_post = $wp_query->get_queried_object();
+	//$cur_post_meta = get_post_meta($cur_post->ID, 'sidebarless');
+
     add_filter( 'use_default_gallery_style', '__return_false' ); //Remove Gallery Inline Styling
 
     register_sidebar(

@@ -1,0 +1,52 @@
+.home {
+	.panel {
+		width: 33.33%; 
+		float: left; 
+
+		.content {
+			padding-right: 3em; 
+		}
+	}
+
+	.row {
+		overflow: hidden; 
+	}
+}
+
+.tweet_list {
+	
+	li {
+		overflow: hidden; 
+		display: block; 
+		position: relative; 
+		padding-bottom: 1em; 
+
+		& > span, & > a, img { display: block; }
+
+		.tweet_avatar {
+			position: absolute;
+			left: 0; top: 0;
+
+			img { padding: 2px; background: #FFF; border: 1px solid #CCC; }
+		}
+		
+		.tweet_user, .tweet_time, .tweet_text { padding-left: 60px; }
+
+		.tweet_user {
+			font-size: 1.2em; line-height: 1em; 
+			&::before { content: '@'; }
+		}
+
+		.tweet_time {
+			padding-bottom: 0.2em; 
+		}
+
+		.tweet_text {
+
+		}
+
+		&.tweet_odd { }
+		&.tweet_even { }
+	}
+
+}

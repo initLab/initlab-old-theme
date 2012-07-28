@@ -13,6 +13,16 @@ jQuery(document).ready(function ($) {
 	}
 	wf_load();
 
+	$("#tweets").tweet({
+		join_text: "",
+		avatar_size: 48,
+		count: 5,
+		query: "#initlab",
+		loading_text: "Searching tweets...",
+		refresh_interval: 60,
+		template: "{avatar}{user}{time}{join}{text}"
+	});
+
   /* Use this js doc for all application specific JS */
 
   /* TABS --------------------------------- */

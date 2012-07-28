@@ -1,41 +1,68 @@
+/* Variables */
+$mainBorderColor: #333;
+$linkColor: #369;
+
 /* Custom imports */
-@import "foundation-icons-general";
-@import "typography";
+@import "_mixins";
+@import "compass/css3";
+@import "_typography";
+@import "_forms";
 @import "_sitemap";
+@import "_home";
+@import "_mediaqueries";
 
 * { margin: 0; padding: 0; }
-body { background: url('../images/body_bgrd.png'); }
+
+body {  }
+
+a { text-decoration: none; color: $linkColor; }
 
 // Layout
 #container {
 	width: 80%;
-	max-width: 1200px;
-	margin: 0 auto; 
 	background: #FFF; 
-	border: solid #CCC;
-	border-width: 0 1px;
+	border-top: 5px solid $mainBorderColor;
 
 	& > header {
+		border-bottom: 2px solid $mainBorderColor; 
+		padding-left: 3em; 
 		overflow: hidden; 
-		border-bottom: 1px solid #CCC; 
 
-		h1 { float: left; }
+		h1 { 
+			float: left; 
+			font-size: 5em;
+			padding: 0.5em 1em 0.5em 0; 
+
+			a { color: #000;  }
+		}
 
 		.menu {
-			padding: 1em; 
+			float: right;
+			padding: 0; 
+
+			li { 
+				float: left; 
+
+				a { 
+					display: block;
+					font-size: 2em; 
+					line-height: 1em; 
+					padding: 2.8em 1em 0 1em;
+				}
+			}
 		}
 	}
 
 	& > footer { 
-		border-top: 1px solid #CCC; 
-		padding: 2em; 
+		border-top: 2px solid $mainBorderColor; 
+		padding: 3em 0 3em 3em; 
 	}
 
 	& > #main { 
-		overflow: hidden; 
+		padding: 3em 0 0 3em; 
 
 		& > article {
-			padding: 0 2em; 
+			padding: 0 2em 0 0; 
 			
 			header {
 				p.meta {
@@ -61,10 +88,7 @@ ul.menu {
 }
 
 .panel {
-	background: #EEE; 
-	
-	header { text-align: center; }
-	.glyph { text-align: center; } 
+	padding-bottom: 2em; 
 }
 
 .debug {
@@ -73,6 +97,17 @@ ul.menu {
 }
 
 .breadcrumbs {
-	border: solid #ccc;
-	border-width: 0 0 1px 0;
+	clear: both; 
+	border-bottom: 2px solid $mainBorderColor;
+	padding: 0.2em 0.4em 0.2em 3.2em;
+	color: #999; 
+
+	/*@include border-radius(3px);*/
+	/*@include background-image(linear-gradient(rgb(224, 224, 224), rgb(245, 245, 245)));*/
+	/*@include box-shadow(#DDD 0px 0px 4px, #f4f4f4 0 0 1px 1px inset);*/
+
+	a { color: lighten($linkColor, 10); } 
+	a:hover { color: darken($linkColor, 10); text-decoration: underline;  } 
 }
+
+

@@ -14,6 +14,7 @@
 	<script src="<?php bloginfo('template_url'); ?>/scripts/foundation/jquery.tooltips.js"></script>
 
 	*/ ?>
+	<script src="<?php bloginfo('template_url'); ?>/scripts/jquery.tweet.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/scripts/app.js"></script>
 
 	<?php wp_footer(); ?>
