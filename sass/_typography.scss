@@ -7,14 +7,14 @@
 
 	h1, h2, h3, h4, h5, h6 { font: normal 1em/1.3em "PT Sans", "Lucida Grande", Georgia, serif;  }
 
-	h1 { font-size: 2.836em; padding-bottom: 0.1em; }
-	h2 { font-size: 2.218em; padding-bottom: 0.4em;  }
-	h3 { font-size: 1.618em; padding-bottom: 0.5em;  }
+	h1 { font-size: 2.836em; padding-bottom: 0.1em;  }
+	h2 { font-size: 2.218em; padding-bottom: 0.4em; @include text-shadow(#FFF -1px -1px 0px);  }
+	h3 { font-size: 1.818em; padding-bottom: 0.5em; @include text-shadow(#FFF -1px -1px 0px);  }
 	h4 { font-size: 1.236em; padding-bottom: 0.5em;  }
 	h5 { font-size: 1.136em; font-weight: bold; }
 	h6 { font-size: 1.0em; font-weight: bold; }
 
-	#container { font-size: 0.9em; } 
+	#container { font-size: 0.95em; } 
 
 	ul ul, ol ol, ul ol, ol ul, blockquote { padding: 0.6em 1em; margin-bottom: 1em;  }
 

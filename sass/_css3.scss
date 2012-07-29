@@ -1,47 +1,9 @@
 /* --- CSS3 Transitions and Animations --------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-.site-nav {
-	li,
-	li > a,
-	li > span,
-	li > span section {
-		-webkit-transition: all 0.2s linear;
-		   -moz-transition: all 0.2s linear;
-			 -o-transition: all 0.2s linear;
-				transition: all 0.2s linear;
-	}
+
+header h1 a { 
+	@include single-transition(all, 0.1s, linear);
 }
 
-#projects {
-	
-	.list a span {
-		-webkit-transition: all 0.1s linear;
-		   -moz-transition: all 0.1s linear;
-			 -o-transition: all 0.1s linear;
-				transition: all 0.1s linear;
-	}
-
-	.section {
-		-webkit-transition: all 0.5s ease-in;
-		   -moz-transition: all 0.5s ease-in;
-			 -o-transition: all 0.5s ease-in;
-				transition: all 0.5s ease-in;
-	}
-
-	& > header span.dash {
-		-webkit-transition: all 0.4s ease-in;
-		   -moz-transition: all 0.4s ease-in;
-			 -o-transition: all 0.4s ease-in;
-				transition: all 0.4s ease-in;
-
-	}
-
-	& > header > h2 {
-		-webkit-transition: all 0.3s ease-in;
-		   -moz-transition: all 0.3s ease-in;
-			 -o-transition: all 0.3s ease-in;
-				transition: all 0.3s ease-in;
-
-	}
-
+#container {
+	@include single-transition(font-size, 0.1s, linear);
 }
-

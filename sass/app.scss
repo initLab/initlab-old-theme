@@ -1,65 +1,171 @@
 /* Variables */
-$mainBorderColor: #333;
+$mainBorderColor: #CCC;
+$secondaryBorderColor: #FFF;
 $linkColor: #369;
+$containerWidth: 80%;
+$containerMinWidth: 960px;
+
+/* Compass */
+@import "compass/css3";
 
 /* Custom imports */
 @import "_mixins";
-@import "compass/css3";
 @import "_typography";
+@import "_css3";
 @import "_forms";
-@import "_sitemap";
+@import "_elements";
 @import "_home";
 @import "_mediaqueries";
 
 * { margin: 0; padding: 0; }
 
-body {  }
+body {
+	background: #F1F1F1;
+	/*background: url(../images/body_bgrd_2.png);*/
+}
+
+hr { display: none; }
 
 a { text-decoration: none; color: $linkColor; }
+a:hover { text-decoration: underline; }
 
 // Layout
 #container {
-	width: 80%;
-	background: #FFF; 
-	border-top: 5px solid $mainBorderColor;
+	width: $containerWidth;
+	min-width: $containerMinWidth;
+	position: relative; 
+	padding-top: 3em; 
+	margin: 0 auto; 
+	color: #333; 
 
 	& > header {
-		border-bottom: 2px solid $mainBorderColor; 
+		border-top: 2px solid $mainBorderColor; 
+		border-bottom: 2px solid $secondaryBorderColor; 
 		padding-left: 3em; 
 		overflow: hidden; 
 
 		h1 { 
 			float: left; 
-			font-size: 5em;
-			padding: 0.5em 1em 0.5em 0; 
+			font-size: 7em;
+			padding: 0.2em 0; 
 
-			a { color: #000;  }
+			a { 
+				display: block; 
+				color: #333;
+				@include text-shadow(#EEE -2px -2px 0px, #999 -4px -4px 0px);
+				
+				&:hover { 
+					@include text-shadow(#EEE -1px -1px 0px, #999 -2px -2px 0px);
+					text-decoration: none; 
+				}
+			}
 		}
-
+		
 		.menu {
 			float: right;
 			padding: 0; 
+			height: 100%;
 
-			li { 
+			li {
+				display: block; 
 				float: left; 
+				padding: 0; 
+				font-size: 1.3em; 
+				line-height: 1em; 
+				border-left: 2px solid $secondaryBorderColor;
 
 				a { 
 					display: block;
-					font-size: 2em; 
-					line-height: 1em; 
-					padding: 2.8em 1em 0 1em;
+					padding: 5em 4em 1em 1em;
+					border-left: 2px solid $mainBorderColor;
+					color: #333; 
+
+					@include text-shadow(#FFF -2px -2px 0px);
+
+					&:hover {
+
+						text-decoration: none; 
+					}
+				}
+			}
+		}
+
+		.breadcrumbs, .headerbar_menu {
+			position: absolute;
+			height: 3em;
+			line-height: 3em; 
+
+			a {
+				color: #666; 
+				display: block; 
+				padding: 0 1.5em 0 0; 
+				@include text-shadow(#FFF -1px -1px 0);
+
+				&:hover { text-decoration: underline; } 
+			}
+		}
+
+		.breadcrumbs {
+			top: -2px; left: 0;
+			width: 100%; 
+			color: #999; 
+			border-bottom: 2px solid #FFF;
+			font-size: 1em; line-height: 3.1em; 
+			text-indent: 1em; 
+			
+			a { display: inline; }
+
+			/*@include border-radius(5px);*/
+			/*@include background-image(linear-gradient(rgb(224, 224, 224), #EEE));*/
+			/*@include box-shadow(#DDD 0px 0px 4px, #EEE 0 0 1px 1px inset);*/
+		}
+
+		.headerbar_menu {
+			right: 0; top: 0;
+
+			li { display: block; float: left; }
+		}
+
+	}
+
+	& > footer { 
+		border-top: 2px solid $mainBorderColor; 
+		border-bottom: 2px solid $secondaryBorderColor; 
+		padding: 2.5em 0 0 3em; 
+		overflow: hidden; 
+
+		section.mod {
+			width: 33.33%; 
+			float: left; 
+			overflow: hidden; 
+		}
+
+		#menu-sitemap {
+			li {
+				padding: 0; 
+
+				ul {
+					padding: 0 0 0 2em; 
 				}
 			}
 		}
 	}
 
-	& > footer { 
-		border-top: 2px solid $mainBorderColor; 
-		padding: 3em 0 3em 3em; 
+	& > #copyright {
+		border-top: 2px solid $mainBorderColor;
+		padding: 1em 3em; 
+		color: #666;
+		overflow: hidden; 
+
+		p { width: 50%; padding: 0; } 
+		p:first-child { float: right; text-align: right;  }
+		p:last-child { float: left; }
+
+		a { color: #333; }
 	}
 
 	& > #main { 
-		padding: 3em 0 0 3em; 
+		border-top: 2px solid $mainBorderColor;
 
 		& > article {
 			padding: 0 2em 0 0; 
@@ -96,18 +202,5 @@ ul.menu {
 	padding: 2em; 
 }
 
-.breadcrumbs {
-	clear: both; 
-	border-bottom: 2px solid $mainBorderColor;
-	padding: 0.2em 0.4em 0.2em 3.2em;
-	color: #999; 
-
-	/*@include border-radius(3px);*/
-	/*@include background-image(linear-gradient(rgb(224, 224, 224), rgb(245, 245, 245)));*/
-	/*@include box-shadow(#DDD 0px 0px 4px, #f4f4f4 0 0 1px 1px inset);*/
-
-	a { color: lighten($linkColor, 10); } 
-	a:hover { color: darken($linkColor, 10); text-decoration: underline;  } 
-}
 
 

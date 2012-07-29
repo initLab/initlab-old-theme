@@ -1,1 +1,174 @@
+/*
+ * Basic resets for Print styles 
+ * @include printStylesBase();
+ */
+@mixin printStylesBase() {
 
+	@media print {
+
+		* {
+			background: transparent !important;
+			color: black !important; /* Black prints faster: sanbeiji.com/archives/953 */
+			text-shadow: none !important; 
+			filter:none !important;
+			-ms-filter: none !important; 
+		} 
+
+		a, a:visited { 
+			color: #444 !important; 
+			text-decoration: underline; 
+		}
+
+		a[href]:after { content: " (" attr(href) ")"; }
+		abbr[title]:after { content: " (" attr(title) ")"; }
+		.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+
+		pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+		thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */
+		tr, img { page-break-inside: avoid; }
+		img { max-width: 100% !important; }
+		@page { margin: 0.5cm; }
+		p, h2, h3 { orphans: 3; widows: 3; }
+		h2, h3{ page-break-after: avoid; }
+	}
+}
+
+/*
+ * Used to normalise select dropdowns 
+ * @include normaliseSelect();
+ */
+@mixin normaliseSelect() {
+	-webkit-appearance: none;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding;
+	background-clip: padding-box;
+	/* IE7 */
+	*padding-top: 2px;
+	*padding-bottom: 1px;
+	*height: auto;
+}
+
+/*
+ * @font-face mixin
+ * @include font-face('family', '../fonts/', 'myfontname');
+ */
+@mixin font-face($font-family, $font-url, $font-name) {
+	@font-face {
+		font-family:$font-family;
+		src:url($font-url + '/' + $font-name + '.eot');
+		src: url($font-url + '/' + $font-name + '.eot?#iefix') format('eot'),
+			 url($font-url + '/' + $font-name + '.woff') format('woff'),
+			 url($font-url + '/' + $font-name + '.ttf') format('truetype'),
+			 url($font-url + '/' + $font-name + '.svg#webfontBF9xh1gY') format('svg');
+		font: {
+			style:normal;
+			weight:normal;
+		}
+	}
+}
+
+
+/*
+ * Adds a triangle
+ * @include addTriangle(right, 6px, 20%, 1px, #ccc, #000);
+ */
+@mixin addTriangle($direction: up, $size: 10px, $offset: 50%, $border_width: 2px, $bg_color: #ccc, $border_color: #333)  {
+	position: relative;
+	background: $bg_color;
+	border: $border_width solid $border_color;
+	@if ($direction == up) {
+		&:after, &:before {
+			bottom: 100%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+		}
+		&:after {
+			border-bottom-color: $bg_color;
+			border-width: $size;
+			left: $offset;
+			margin-left: -$size;
+		}
+		&:before {
+			border-bottom-color: $border_color;
+			border-width: ($size + ($border_width*2));
+			left: $offset;
+			margin-left: -($size + ($border_width*2));
+		}
+	} @else if ($direction == down) {
+		&:after, &:before {
+			top: 100%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+		}
+		&:after {
+			border-top-color: $bg_color;
+			border-width: $size;
+			left: $offset;
+			margin-left: -$size;
+		}
+		&:before {
+			border-top-color: $border_color;
+			border-width: ($size + ($border_width*2));
+			left: $offset;
+			margin-left: -($size + ($border_width*2));
+		}
+	} @else if ($direction == left) {
+		&:after, &:before {
+			right: 100%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+		}
+		&:after {
+			border-right-color: $bg_color;
+			border-width: $size;
+			top: $offset;
+			margin-top: -$size;
+		}
+		&:before {
+			border-right-color: $border_color;
+			border-width: ($size + ($border_width*2));
+			top: $offset;
+			margin-top: -($size + ($border_width*2));
+		}
+	} @else if ($direction == right) {
+		&:after, &:before {
+			left: 100%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+		}
+		&:after {
+			border-left-color: $bg_color;
+			border-width: $size;
+			top: $offset;
+			margin-top: -$size;
+		}
+		&:before {
+			border-left-color: $border_color;
+			border-width: ($size + ($border_width*2));
+			top: $offset;
+			margin-top: -($size + ($border_width*2));
+		}
+	}
+}

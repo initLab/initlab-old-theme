@@ -1,27 +1,58 @@
 jQuery(document).ready(function ($) {
 
-	// Fonts loading from Google Web Fonts direcory. JavaScrip loading gives us feedback on the loaded status of every font.
-	WebFontConfig = { google: { families: [ 'PT Sans' ] } }
-	function wf_load()
-	{
+	WebFontConfig = {
+		google: { families: [ 'PT+Sans' ] },
+		custom: { families: [ 'PictosWeb' ], urls: [ '/content/themes/initlab/css/fonts/fonts.css' ] },
+		loading: function() {
+			// Called when all the specified web-font provider modules (google, typekit, and/or custom) have reported that they have started loading fonts.
+
+		},
+		active: function() {
+			// Called when all of the web fonts have either finished loading or failed to load, as long as at least one loaded successfully.
+
+		},
+		inactive: function() {
+			// Called if the browser does not support web fonts or if none of the fonts could be loaded.
+
+		}
+	};
+
+	(function(){
 		var wf = document.createElement('script');
 		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
 		wf.type = 'text/javascript';
 		wf.async = 'true';
 		var s = document.getElementsByTagName('script')[0];
 		s.parentNode.insertBefore(wf, s);
-	}
-	wf_load();
+	})();
 
+	/* Load Tweets on the homepage */
 	$("#tweets").tweet({
 		join_text: "",
-		avatar_size: 48,
-		count: 5,
+		avatar_size: 52,
+		count: 6,
 		query: "#initlab",
-		loading_text: "Searching tweets...",
-		refresh_interval: 60,
-		template: "{avatar}{user}{time}{join}{text}"
+		loading_text: "Loading tweets...",
+		template: "{avatar}{text}{user}{time}"
 	});
+
+	$(".widget_flickrRSS li a").each(function(){
+	
+		var url_i_square = $(this).attr('data-image-square');
+
+		$(this).html('<img src="'+url_i_square+'" />');
+
+	});
+
+
+	//$(window).load(function() {
+		//$('.tweet_avatar img').each(function(){
+			//var imgClass = $(this).attr('class');
+			//$(this).wrap('<span class="image-wrap glossy" style="width: auto; height: auto;"/>');
+			//$(this).removeAttr('class');
+		//});
+	//});
+
 
   /* Use this js doc for all application specific JS */
 

@@ -1,0 +1,82 @@
+// the mixin
+
+    @mixin ribbon($color, $ribbon-thickness, $notch-color, $notch-side) {
+      @include background-image(linear-gradient(lighten($color, 20%), darken($color, 10%)));
+      @include inline-block;
+      position: absolute;
+      padding-#{$notch-side}: $ribbon-thickness;
+      @if $notch-side == left {
+        height: $ribbon-thickness;
+        line-height: $ribbon-thickness;
+        right: -2px;
+        padding-right: 10px;
+        text-align: right;
+      } @else if $notch-side == right {
+        height: $ribbon-thickness;
+        line-height: $ribbon-thickness;
+        left: -2px;
+        padding-left: 10px;
+      } @else if $notch-side == bottom {
+        text-align: center;
+        width: $ribbon-thickness;
+        top: -2px;
+        padding-top: 10px;
+      } @else {
+        text-align: center;
+        width: $ribbon-thickness;
+        bottom: -2px;
+        padding-bottom: 10px;
+      }
+      &:before {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+        border-style: solid;
+        border-width: $ribbon-thickness/2;
+        border-color: transparent;
+        border-#{$notch-side}-color: $notch-color;
+        position: absolute;
+        #{$notch-side}: -1px;
+      }
+    }
+
+    // the implementation
+
+    // the ribbon needs a container. We'll call it .box
+    // this container needs to have position: as the ribbon
+    // sits absolutely inside and is to left, top, etc..
+    .box {
+      @include border-radius(8px);
+      @include box-shadow(0 2px 3px rgba(0,0,0,0.1));
+      @include inline-block;
+      width: 168px;
+      height: 130px;
+      background: #ebebeb;
+      border: 1px solid #ccc;
+      position: relative;
+      margin-right: 20px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    // now we'll add some classes to some spans inside out .box
+    // cool right? you just call.. 
+    // @include ribbon([ribbon color], [ribbon thickness], [parent background color], [notch side])
+    // the mixin does the rest
+    .horiz-ribbon {
+      @include ribbon(#548ec1, 40px, #ebebeb, right);
+      @include box-shadow(0px 1px 1px rgba(0,0,0,0.35));
+      top: 10px;
+      color: #fff;
+    }
+    
+    // the rainbow of ribbons above are using this pattern below
+    // with different single hex colors as the first param
+    .vert-ribbon {
+      @include ribbon(#900, 50px, #ebebeb, bottom);
+      @include box-shadow(1px 0 1px rgba(0,0,0,0.35));
+      left: 10px;
+      color: #fff;
+    }

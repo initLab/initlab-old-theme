@@ -1,7 +1,11 @@
 		</div>
 		<footer>
-			<?php wp_nav_menu( array('theme_location' => 'footer') ); ?>
+			<?php dynamic_sidebar("Footer"); ?>
 		</footer>
+		<div id="copyright">
+			<p>Build on Wordpress using Compass &amp; SCSS, MacVim. Source control on <a href="http://github.com/organizations/initlab">GitHib</a></p>
+			<p>Licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a></p>
+		</div>
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>

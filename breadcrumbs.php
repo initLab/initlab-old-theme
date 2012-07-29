@@ -11,6 +11,7 @@
 		if($type){ $link[] = array( ucfirst($type), '/'.$type ); }
 		if(is_single()){ $link[] = array( get_the_title(), get_permalink() ); }
 
+		echo '<hr>';
 		echo '<div class="breadcrumbs">';
 
 			foreach($link as $l)
@@ -19,6 +20,7 @@
 			}
 
 		echo '</div>';
+		echo '<hr>';
 	}
 
 ?>

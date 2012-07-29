@@ -34,9 +34,26 @@ and (orientation : landscape) {
 
 /* iPads (portrait) ----------- */
 @media only screen
-and (min-device-width : 768px)
 and (max-device-width : 1024px)
 and (orientation : portrait) {
+
+	.wf-active #container { font-size: 0.85em; line-height: 1.4em;  }
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 900px) {
+
+	.wf-active 	#container { font-size: 0.85em; line-height: 1.4em;  }
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1024px) {
+
+	.wf-active 	#container { font-size: 0.85em; line-height: 1.4em;  }
 
 }
 
@@ -44,11 +61,28 @@ and (orientation : portrait) {
 @media only screen
 and (min-width : 1224px) {
 
+	.wf-active #container { font-size: 0.95em; line-height: 1.4em;  }
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1400px) {
+
+
 }
 
 /* Large screens ----------- */
 @media only screen
-and (min-width : 1824px) {
+and (min-width : 1600px) {
+
+
+}
+
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1800px) {
+
 
 }
 
