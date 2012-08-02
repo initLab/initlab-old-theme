@@ -1,29 +1,33 @@
-/* --- Comments --------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-#comments_wrapper {
-	padding: 40px; color: #605B53; 
-	
-	#comments { border-bottom: 1px solid #CCC; }
-	h3 { padding-bottom: 1em; margin-bottom: 10px; font-size: 1.5em;   }
+/* --- Forms --------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
-	.comment { border-bottom: 1px solid #CCC; padding-bottom: 10px; margin-bottom: 10px;  }
-	.comment-meta { padding-bottom: 1em; }
-	.comment-author img { float: left; margin-right: 10px;  }
-	.reply { padding: 0.5em 0 0 0; text-align: right;  }
-	textarea,
-	input { background: #F8F8F8; border: 1px solid #CCC; padding: 5px; outline: none;  }
+$radiusBorderInput: 5px;
+$radiusBorderTextarea: $radiusBorderInput;
 
-	textarea:focus,
-	input:focus,
-	input:active { border-color: #EF5A21; }
+$boxshadowInput: #444 0 0 0 5px inset;
+$boxshadowTextarea: $boxshadowInput;
 
-	#respond {
-		padding-top: 20px; 
+form {
 
-		h3 { padding-bottom: 10px; }
-		form p { padding-bottom: 10px; }
+	input, textarea {
+		display: block; 
+
 	}
 
-	#submit { padding: 5px 10px; background: #FFF; border-width: 5px; cursor: pointer;  }
+	input {
+		@include border-radius($radiusBorderInput);
+		@include box-shadow($boxshadowInput);
+	}
+
+	textarea {
+		@include border-radius($radiusBorderTextarea);
+		@include box-shadow($boxshadowTextarea);
+	}
+
+	label {
+		display: block; 
+	}
+
+	select {
+		@include normaliseSelect;
+	}
 }
-
-

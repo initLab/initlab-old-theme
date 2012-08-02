@@ -1,53 +1,59 @@
+
 /* Variables */
-$mainBorderColor: #CCC;
-$secondaryBorderColor: #FFF;
-$linkColor: #369;
-$containerWidth: 80%;
-$containerMinWidth: 960px;
+$widthContainer: 80%;
+$widthMinContainer: 960px;
+
+$colorBgrdBody: #F1F1F1;
+
+$colorLinkNormal: #369;
+$colorLinkHover:  #369;
+$colorLinkActive: #369;
+$colorLinkVisited: #369;
+$colorLinkFocus:  #369;
+
+$colorBorderMain: #CCC;
+$colorBorderSecondary: #FFF;
 
 /* Compass */
+@import "compass/typography/links";
 @import "compass/css3";
 
 /* Custom imports */
 @import "_mixins";
 @import "_typography";
-@import "_css3";
+@import "_animations";
 @import "_forms";
 @import "_elements";
-@import "_home";
+@import "_avatars";
+@import "_navigation";
 @import "_mediaqueries";
 
 * { margin: 0; padding: 0; }
+.debug { white-space: pre; padding: 2em; }
 
-body {
-	background: #F1F1F1;
-	/*background: url(../images/body_bgrd_2.png);*/
-}
-
+body { background: $colorBgrdBody; }
 hr { display: none; }
-
-a { text-decoration: none; color: $linkColor; }
-a:hover { text-decoration: underline; }
+a { @include hover-link; @include link-colors($colorLinkNormal, $colorLinkHover, $colorLinkActive, $colorLinkVisited, $colorLinkFocus); }
 
 // Layout
 #container {
-	width: $containerWidth;
-	min-width: $containerMinWidth;
-	position: relative; 
-	padding-top: 3em; 
+	width: $widthContainer;
+	min-width: $widthMinContainer;
 	margin: 0 auto; 
+	padding-top: 3em; 
+	position: relative; 
 	color: #333; 
 
 	& > header {
-		border-top: 2px solid $mainBorderColor; 
-		border-bottom: 2px solid $secondaryBorderColor; 
-		padding-left: 3em; 
 		overflow: hidden; 
+		padding-left: 3em; 
+		border-top: 2px solid $colorBorderMain; 
+		border-bottom: 2px solid $colorBorderSecondary; 
 
 		h1 { 
 			float: left; 
-			font-size: 7em;
 			padding: 0.2em 0; 
+			font-size: 7em;
 
 			a { 
 				display: block; 
@@ -60,79 +66,14 @@ a:hover { text-decoration: underline; }
 				}
 			}
 		}
-		
-		.menu {
-			float: right;
-			padding: 0; 
-			height: 100%;
-
-			li {
-				display: block; 
-				float: left; 
-				padding: 0; 
-				font-size: 1.3em; 
-				line-height: 1em; 
-				border-left: 2px solid $secondaryBorderColor;
-
-				a { 
-					display: block;
-					padding: 5em 4em 1em 1em;
-					border-left: 2px solid $mainBorderColor;
-					color: #333; 
-
-					@include text-shadow(#FFF -2px -2px 0px);
-
-					&:hover {
-
-						text-decoration: none; 
-					}
-				}
-			}
-		}
-
-		.breadcrumbs, .headerbar_menu {
-			position: absolute;
-			height: 3em;
-			line-height: 3em; 
-
-			a {
-				color: #666; 
-				display: block; 
-				padding: 0 1.5em 0 0; 
-				@include text-shadow(#FFF -1px -1px 0);
-
-				&:hover { text-decoration: underline; } 
-			}
-		}
-
-		.breadcrumbs {
-			top: -2px; left: 0;
-			width: 100%; 
-			color: #999; 
-			border-bottom: 2px solid #FFF;
-			font-size: 1em; line-height: 3.1em; 
-			text-indent: 1em; 
-			
-			a { display: inline; }
-
-			/*@include border-radius(5px);*/
-			/*@include background-image(linear-gradient(rgb(224, 224, 224), #EEE));*/
-			/*@include box-shadow(#DDD 0px 0px 4px, #EEE 0 0 1px 1px inset);*/
-		}
-
-		.headerbar_menu {
-			right: 0; top: 0;
-
-			li { display: block; float: left; }
-		}
-
+	
 	}
 
 	& > footer { 
-		border-top: 2px solid $mainBorderColor; 
-		border-bottom: 2px solid $secondaryBorderColor; 
 		padding: 2.5em 0 0 3em; 
 		overflow: hidden; 
+		border-top: 2px solid $colorBorderMain; 
+		border-bottom: 2px solid $colorBorderSecondary; 
 
 		section.mod {
 			width: 33.33%; 
@@ -151,8 +92,12 @@ a:hover { text-decoration: underline; }
 		}
 	}
 
+	& > #main { 
+		border-top: 2px solid $colorBorderMain;
+	}
+
 	& > #copyright {
-		border-top: 2px solid $mainBorderColor;
+		border-top: 2px solid $colorBorderMain;
 		padding: 1em 3em; 
 		color: #666;
 		overflow: hidden; 
@@ -163,44 +108,38 @@ a:hover { text-decoration: underline; }
 
 		a { color: #333; }
 	}
+}
 
-	& > #main { 
-		border-top: 2px solid $mainBorderColor;
+.home {
 
-		& > article {
-			padding: 0 2em 0 0; 
-			
-			header {
-				p.meta {
+	.panel {
+		width: 33.33%; 
+		float: left; 
 
-				}
-			}
+		.content {
+			padding-right: 3em; 
 		}
+
+		&:last-child .content { padding-right: 0.5em; }
 	}
 
-}
+	.row {
+		overflow: hidden; 
+		padding: 2em 0 0 0.5em; 
 
+		&.line1 {
+			border-bottom: 2px solid $colorBorderSecondary;
+		}
 
-ul.menu {
+		&.line2 {
+			border-top: 2px solid $colorBorderMain;
+			border-bottom: 2px solid $colorBorderSecondary;
+		}
 
-	& * { display: block; }
-
-	li {
-		list-style: none outside;
-		a {
-
+		&.line3 {
+			border-top: 2px solid $colorBorderMain;
+			border-bottom: 2px solid $colorBorderSecondary;
 		}
 	}
 }
-
-.panel {
-	padding-bottom: 2em; 
-}
-
-.debug {
-	white-space: pre;
-	padding: 2em; 
-}
-
-
 
