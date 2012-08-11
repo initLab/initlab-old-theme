@@ -1,3 +1,19 @@
+function initializeMap() {
+	var mapOptions = {
+		zoom: 15,
+		center: new google.maps.LatLng(42.681852,23.321974),
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	}
+	var map = new google.maps.Map(document.getElementById("map_address"), mapOptions);
+}
+
+function loadGMaps() {
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDgYOwy86bmyVzUkMARb_hhKD-eEYngSNE&sensor=false&callback=initializeMap";
+	document.body.appendChild(script);
+}
+
 jQuery(document).ready(function ($) {
 
 	WebFontConfig = {
@@ -17,6 +33,8 @@ jQuery(document).ready(function ($) {
 		}
 	};
 
+	loadGMaps();
+
 	(function(){
 		var wf = document.createElement('script');
 		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
@@ -30,11 +48,13 @@ jQuery(document).ready(function ($) {
 	$("#tweets").tweet({
 		join_text: "",
 		avatar_size: 52,
-		count: 6,
+		count: 4,
 		query: "#initlab",
 		loading_text: "Loading tweets...",
-		template: "{avatar}{text}{user}{time}"
+		template: '{user}{time}<span class="cleaner"></span>{avatar}{text}'
 	});
+
+
 
 	$(".widget_flickrRSS li a").each(function(){
 	

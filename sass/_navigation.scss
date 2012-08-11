@@ -1,0 +1,68 @@
+#container > header {
+
+	.menu {
+		float: right;
+		padding: 0; 
+		height: 100%;
+
+		li {
+			display: block; 
+			float: left; 
+			padding: 0; 
+			font-size: 1.3em; 
+			line-height: 1em; 
+			border-left: 2px solid $colorBorderSecondary;
+
+			a { 
+				display: block;
+				padding: 5em 4em 1em 1em;
+				border-left: 2px solid $colorBorderMain;
+				color: #333; 
+
+				@include text-shadow(#FFF -2px -2px 0px);
+
+				&:hover {
+
+					text-decoration: none; 
+				}
+			}
+		}
+	}
+
+	.breadcrumbs, .headerbar_menu {
+		position: absolute;
+		height: 3em;
+		line-height: 3em; 
+
+		a {
+			color: #666; 
+			display: block; 
+			padding: 0 1.5em 0 0; 
+			@include text-shadow(#FFF -1px -1px 0);
+
+			&:hover { text-decoration: underline; } 
+		}
+	}
+
+	.breadcrumbs {
+		top: -2px; left: 0;
+		width: 100%; 
+		color: #999; 
+		border-bottom: 2px solid #FFF;
+		font-size: 1em; line-height: 3.1em; 
+		text-indent: 1em; 
+
+		a { display: inline; }
+
+		/*@include border-radius(5px);*/
+		/*@include background-image(linear-gradient(rgb(224, 224, 224), #EEE));*/
+		/*@include box-shadow(#DDD 0px 0px 4px, #EEE 0 0 1px 1px inset);*/
+	}
+
+	.headerbar_menu {
+		right: 0; top: 0;
+
+		li { display: block; float: left; }
+	}
+
+}
