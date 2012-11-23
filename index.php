@@ -1,5 +1,21 @@
-<?php get_header(); ?>
+<?php
+	get_header();
 
-	<h1>init Lab</h1>
+		if (have_posts())
+		{
+			while (have_posts())
+			{
+				the_post();
 
-<?php get_footer(); ?>
+				if(is_single())
+				{
+					include 'loop/single.php';
+				}else{
+					include 'loop/default.php';
+				}
+			}
+		}
+
+	get_footer();
+?>
+

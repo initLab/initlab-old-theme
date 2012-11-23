@@ -48,32 +48,32 @@ jQuery(document).ready(function ($) {
 	$("#tweets").tweet({
 		join_text: "",
 		avatar_size: 52,
-		count: 4,
+		count: 3,
 		query: "#initlab",
 		loading_text: "Loading tweets...",
 		template: '{user}{time}<span class="cleaner"></span>{avatar}{text}'
 	});
 
-
-
-	$(".widget_flickrRSS li a").each(function(){
-	
-		var url_i_square = $(this).attr('data-image-square');
-
-		$(this).html('<img src="'+url_i_square+'" />');
-
+	/* Load Tweets on the homepage */
+	$("#gatekeeper").tweet({
+		join_text: "",
+		avatar_size: 52,
+		count: 3,
+		username: "@initlabkeeper",
+		loading_text: "Loading tweets...",
+		template: '{user}{time}<span class="cleaner"></span>{text}'
 	});
 
-
-	//$(window).load(function() {
-		//$('.tweet_avatar img').each(function(){
-			//var imgClass = $(this).attr('class');
-			//$(this).wrap('<span class="image-wrap glossy" style="width: auto; height: auto;"/>');
-			//$(this).removeAttr('class');
-		//});
-	//});
-
-
+	$('#flickr').jflickrfeed({
+		limit: 9,
+		qstrings: {
+			id: '53081346@N03'
+		},
+		itemTemplate:
+		'<li>' +
+			'<a class="avatar" href="{{image_b}}"><img src="{{image_s}}" alt="{{title}}" /></a>' +
+		'</li>'
+	});
   /* Use this js doc for all application specific JS */
 
   /* TABS --------------------------------- */

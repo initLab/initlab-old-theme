@@ -114,7 +114,7 @@
 		global $wp;
 		global $wp_query;
 
-		$cpts = array( 'events', 'news', 'courses' );
+		$cpts = array( 'events', 'news', 'courses', 'posts', 'page' );
 
 		foreach($cpts as $type)
 		{

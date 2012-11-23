@@ -12,14 +12,24 @@
 	<div class="row line2">
 		<section class="twitter">
 			<header>
-				<h3>В реално време</h3>
+				<h3>#initlab в Twitter</h3>
 			</header>
 			<div class="content" id="tweets">
 			</div>
 		</section>
 	</div>
 	<div class="row line3">
+		<section class="twitter">
+			<header>
+				<h3>Кой влезе последно в Лаб'а?</h3>
+			</header>
+			<div class="content" id="gatekeeper">
+			</div>
+		</section>
+	</div>
+	<div class="row line3">
 
+		<!--
 		<section class="panel">
 			<header>
 				<h3>Кой е в лаба сега?</h3>
@@ -35,12 +45,14 @@
 				</ul>
 			</div>
 		</section>
+		-->
 
-		<section class="panel">
+		<section class="panel" id="calendar">
 			<header>
-				<h3>Предстоящи събития</h3>
+				<h2>Предстоящи събития</h2>
 			</header>
 			<div class="content">
+				<?php echo apply_filters('the_content', '{CALENDAR}'); ?>
 			</div>
 		</section>
 	</div>

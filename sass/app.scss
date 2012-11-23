@@ -1,4 +1,3 @@
-
 /* Variables */
 $widthContainer: 80%;
 $widthMinContainer: 960px;
@@ -21,11 +20,13 @@ $colorBorderSecondary: #FFF;
 /* Custom imports */
 @import "_mixins";
 @import "_typography";
-@import "_animations";
-@import "_forms";
-@import "_elements";
-@import "_avatars";
 @import "_navigation";
+@import "_elements";
+@import "_lists";
+@import "_forms";
+@import "_animations";
+@import "_avatars";
+@import "_calendar";
 @import "_mediaqueries";
 
 * { margin: 0; padding: 0; }
@@ -34,6 +35,7 @@ $colorBorderSecondary: #FFF;
 body { background: $colorBgrdBody; }
 hr { display: none; }
 a { @include hover-link; @include link-colors($colorLinkNormal, $colorLinkHover, $colorLinkActive, $colorLinkVisited, $colorLinkFocus); }
+.cleaner { display: block; clear: both; height: 0;  overflow: hidden; } 
 
 // Layout
 #container {
@@ -98,9 +100,11 @@ a { @include hover-link; @include link-colors($colorLinkNormal, $colorLinkHover,
 
 	& > #copyright {
 		border-top: 2px solid $colorBorderMain;
-		padding: 1em 3em; 
+		padding: 1em 1em; 
 		color: #666;
 		overflow: hidden; 
+		font-size: 0.8em;
+		line-height: 1.3em; 
 
 		p { width: 50%; padding: 0; } 
 		p:first-child { float: right; text-align: right;  }
@@ -113,14 +117,21 @@ a { @include hover-link; @include link-colors($colorLinkNormal, $colorLinkHover,
 .home {
 
 	.panel {
-		width: 33.33%; 
+		width: 50%; 
 		float: left; 
-
+		
 		.content {
 			padding-right: 3em; 
 		}
 
 		&:last-child .content { padding-right: 0.5em; }
+
+		&#calendar {
+			float: none;
+			width: auto;
+
+			font-size: 0.8em; 
+		}
 	}
 
 	.row {
@@ -141,5 +152,6 @@ a { @include hover-link; @include link-colors($colorLinkNormal, $colorLinkHover,
 			border-bottom: 2px solid $colorBorderSecondary;
 		}
 	}
+
 }
 

@@ -1,0 +1,55 @@
+/* --- calendar --------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+.page.slug-calendar .primary .hfeed .kjo-link p { display: none !important; }
+
+table.calendar-table { 
+	width: 100%;  table-layout: fixed; border-collapse: collapse;
+
+	td { padding: 3px 5px; border: 2px solid #DDD; }
+
+	td.calendar-heading { padding: 0; border: none; 
+		table { padding: 0; margin: 0; border: none; }
+		table td { height: auto; padding: 5px 10px; font-size: 18px; border: none; }
+		table td.calendar-prev {  }
+		table td.calendar-month { text-align: center; border-left: none; }
+		table td.calendar-next { text-align: right; }
+	}
+
+	td.normal-day-heading,
+	td.weekend-heading { font-weight: bold; text-align: center; padding: 5px; height: auto;  }
+	td.weekend-heading {  }
+	td.current-day { background: #EEF; }
+	td.day-with-date { background: #FFF; }
+	td.day-with-date.no-events { background: #F8F8F8; }
+	td.day-without-date { background: #EEE; }
+	td.day-with-date { vertical-align: bottom; }
+	td.day-with-date.no-events {  }
+	td.day-with-date { }
+
+	td { height: 60px; vertical-align: top !important; }
+	td span { display: block; }
+	td > span { display: block; font-size: 18px; padding: 5px 0 10px 0; clear: both; }
+
+	td span.event { font-size: 1px; color: #FFF; font-weight: bold; color: #090; cursor: pointer; padding: 0; }
+	td span.event br { display: block; height: 1px; line-height: 1px; overflow: hidden; }
+
+	td span.event span.calnk {
+		display: inline; font-size: 12px; color: #000;
+
+		a { display: inline; position: relative; text-decoration: none !important; color: #369; padding: 0 0 0 3px; }
+		a > span { display: none; width: 200px; background: #FFF; position: absolute; bottom: 100%; right: 0; padding: 10px; border: 1px solid #CCC; text-decoration: none !important; }
+		a > span br { display: none; }
+		a > span .event-title {  }
+		a > span .event-title-break { display: none; }
+		a > span .event-content-break { display: block; height: 5px;  }
+		a > span strong { font-weight: normal; text-decoration: none; }
+	}
+
+	tr td:first-child span.event span.calnk a > span { bottom: 100%; right: -100%; }
+	td span.event span.calnk a:hover > span { display: block; text-decoration: none !important; color: #000; }
+
+	td[colspan="7"] { display: none; }
+	td table.cat-key { border: none; margin: 0; display: none; }
+	td table.cat-key td { padding: 0; border: none; height: auto;  }
+	td table.cat-key strong { display: none; }
+}
+

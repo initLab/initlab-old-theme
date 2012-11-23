@@ -3,7 +3,7 @@
 			<?php dynamic_sidebar("Footer"); ?>
 		</footer>
 		<div id="copyright">
-			<p>Build on Wordpress using Compass &amp; SCSS, MacVim. Source control on <a href="http://github.com/organizations/initlab">GitHib</a></p>
+			<p>Build on Wordpress using Compass &amp; SCSS, MacVim.<br />Source control on <a href="http://github.com/organizations/initlab">GitHib</a></p>
 			<p>Licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a></p>
 		</div>
 	</div>
@@ -19,6 +19,7 @@
 
 	*/ ?>
 	<script src="<?php bloginfo('template_url'); ?>/scripts/jquery.tweet.js"></script>
+	<script src="<?php bloginfo('template_url'); ?>/scripts/jflickrfeed.min.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/scripts/app.js"></script>
 
 	<?php wp_footer(); ?>
