@@ -5,11 +5,15 @@ and (max-device-width : 480px) {
 
 	.wf-active #container { font-size: 0.75em; line-height: 1.4em;  }
 
+	#container { min-width: auto; }
+
 }
 
 /* Smartphones (landscape) ----------- */
 @media only screen
 and (min-width : 321px) {
+
+	#container { min-width: auto; }
 
 
 }
@@ -17,6 +21,8 @@ and (min-width : 321px) {
 /* Smartphones (portrait) ----------- */
 @media only screen
 and (max-width : 320px) {
+
+	#container { min-width: auto; }
 
 }
 
@@ -43,6 +49,7 @@ and (max-device-width : 1024px)
 and (orientation : portrait) {
 
 	.wf-active #container { font-size: 0.85em; line-height: 1.4em;  }
+	#container { min-width: 800px; }
 
 }
 

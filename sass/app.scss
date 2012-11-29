@@ -72,7 +72,7 @@ a { @include hover-link; @include link-colors($colorLinkNormal, $colorLinkHover,
 	}
 
 	& > footer { 
-		padding: 2.5em 0 0 3em; 
+		padding: 2.5em 0 0 0; 
 		overflow: hidden; 
 		border-top: 2px solid $colorBorderMain; 
 		border-bottom: 2px solid $colorBorderSecondary; 

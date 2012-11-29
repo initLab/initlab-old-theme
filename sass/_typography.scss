@@ -1,5 +1,10 @@
 /* Typography */
 
+	body, form, input, select, option, button, textarea,
+	table, td, th { font: 100%/1.4em "Lucida Grande", Helvetica, Verdana, sans-serif; }
+
+	h1, h2, h3, h4, h5, h6 { font: normal 1em/1.3em "Lucida Grande", Helvetica, Verdana, sans-serif  }
+
 .wf-active {
 
 	#container { font-size: 0.95em; } 
@@ -7,7 +12,7 @@
 	body, form, input, select, option, button, textarea,
 	table, td, th { font: 100%/1.4em "PT Sans", "Lucida Grande", Helvetica, Verdana, sans-serif; }
 
-	h1, h2, h3, h4, h5, h6 { font: normal 1em/1.3em "PT Sans", "Lucida Grande", Georgia, serif;  }
+	h1, h2, h3, h4, h5, h6 { font: normal 1em/1.3em "PT Sans", "Lucida Grande", Helvetica, Verdana, sans-serif  }
 
 	h1 { font-size: 2.836em; padding-bottom: 0.1em;  }
 	h2 { font-size: 2.218em; padding-bottom: 0.4em; @include text-shadow(#FFF -1px -1px 0px);  }
