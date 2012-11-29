@@ -2,7 +2,7 @@
 .page.slug-calendar .primary .hfeed .kjo-link p { display: none !important; }
 
 table.calendar-table { 
-	width: 100%;  table-layout: fixed; border-collapse: collapse;
+	width: 100%;  table-layout: fixed; border-collapse: collapse; margin-bottom: 1.5em; 
 
 	td { padding: 3px 5px; border: 2px solid #DDD; }
 
@@ -47,9 +47,12 @@ table.calendar-table {
 	tr td:first-child span.event span.calnk a > span { bottom: 100%; right: -100%; }
 	td span.event span.calnk a:hover > span { display: block; text-decoration: none !important; color: #000; }
 
-	td[colspan="7"] { display: none; }
 	td table.cat-key { border: none; margin: 0; display: none; }
 	td table.cat-key td { padding: 0; border: none; height: auto;  }
 	td table.cat-key strong { display: none; }
+
+	& + div.kjo-link p { display: none; }
+
 }
 
+.page-id-1123.page article.entry { padding-right: 3em; }

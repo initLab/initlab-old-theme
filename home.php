@@ -21,12 +21,23 @@
 	<div class="row line3">
 		<section class="twitter">
 			<header>
+				<h3>Кой e в Лаб'а?</h3>
+			</header>
+			<div class="content" id="presence">
+			</div>
+		</section>
+	</div>
+	<?php /* ?>
+	<div class="row line3">
+		<section class="twitter">
+			<header>
 				<h3>Кой влезе последно в Лаб'а?</h3>
 			</header>
 			<div class="content" id="gatekeeper">
 			</div>
 		</section>
 	</div>
+	<?php */ ?>
 	<div class="row line3">
 
 		<!--
